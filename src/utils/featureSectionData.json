@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "FamekƆ will be your companion all the way till you arrive",
+    "description": "Let FamekƆ take you there without any stress. We are an online bus reservation system that gives you the ability to do enquiries and reserve seats from the comfort of your home.",
+    "image": "/images/laptop.png",
+    "alt": "row",
+    "btn": true,
+    "direction": "row"
+  },
+  {
+    "id": 2,
+    "title": "FamekƆ will be your companion all the way till you arrive",
+    "description": "Let FamekƆ take you there without any stress. We are an online bus reservation system that gives you the ability to do enquiries and reserve seats from the comfort of your home.",
+    "image": "images/search.png",
+    "alt": "row-revese",
+    "btn": false,
+    "direction": "row-reverse"
+  },
+  {
+    "id": 3,
+    "title": "FamekƆ will be your companion all the way till you arrive",
+    "description": "Let FamekƆ take you there without any stress. We are an online bus reservation system that gives you the ability to do enquiries and reserve seats from the comfort of your home.",
+    "image": "/images/man.png",
+    "alt": "row",
+    "btn": false,
+    "direction": "row"
+  }
+]
