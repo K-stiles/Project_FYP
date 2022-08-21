@@ -1,13 +1,16 @@
 import React from "react";
 import {
-  AboutUsSection,
   ContactSection,
   FaqSection,
   FeatureSponsorWrapper,
   HeroSection,
   TestimonialSection,
 } from "../../components";
-import { PricingContainer } from "../../container";
+import {
+  AboutUsContainer,
+  BannerContainer,
+  PricingContainer,
+} from "../../container";
 import { HomeWrapper } from "./home.styled";
 
 export default function HomePage() {
@@ -16,7 +19,8 @@ export default function HomePage() {
       <HeroSection />
       <FeatureSponsorWrapper />
       <PricingContainer />
-      <AboutUsSection />
+      <BannerContainer />
+      <AboutUsContainer />
       <FaqSection />
       <TestimonialSection />
       <ContactSection />
