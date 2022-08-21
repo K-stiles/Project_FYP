@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Container,
   Description,
@@ -38,4 +39,3 @@ Banner.Title = function BannerTitle({ children, ...restProps }) {
 };
 Banner.Description = function BannerDescription({ children, ...restProps }) {
   return <Description {...restProps}>{children}</Description>;
-};

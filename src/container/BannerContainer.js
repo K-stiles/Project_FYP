@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Banner, PrimarySolidBtn } from "../components";
 
 const images = {

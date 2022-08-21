@@ -1,30 +1,14 @@
 [
   {
     "id": "1",
-    "title": "Save More",
-    "subTitle": "What You'll Get",
+    "title": "Save More With Famek)",
+    "subTitle": "Choose a plan and get onboard in minutes. Then get GHC100 credits for your next trip.",
     "titleIcon": "/images/busIcon.png",
     "distance": 500,
     "price": 20,
     "image": "/images/busImage.png",
     "renderBtn": false,
-    "label": [
-      {
-        "id": "label-1dfdsv",
-        "labelIcon": "/images/checkCircleIcon.png",
-        "tag": "10% off Booking for another person"
-      },
-      {
-        "id": "label-2vdfbdf",
-        "labelIcon": "/images/checkCircleIcon.png",
-        "tag": "10% off Booking for another person"
-      },
-      {
-        "id": "label-3dfbfsbe",
-        "labelIcon": "/images/checkCircleIcon.png",
-        "tag": "10% off Booking for another person"
-      }
-    ]
+    "label": []
   },
   {
     "id": "2",
@@ -51,11 +35,11 @@
   },
   {
     "id": "3",
-    "title": "Save More",
+    "title": "Group Trip",
     "subTitle": "What You'll Get",
     "titleIcon": "/images/busIcon.png",
     "distance": 500,
-    "price": 20,
+    "price": 380,
     "image": "/images/busImage.png",
     "renderBtn": true,
 
@@ -77,11 +61,6 @@
       },
       {
         "id": "label-2cetwcrcc",
-        "labelIcon": "/images/checkCircleIcon.png",
-        "tag": "10% off Booking for another person"
-      },
-      {
-        "id": "label-3ccywt",
         "labelIcon": "/images/checkCircleIcon.png",
         "tag": "10% off Booking for another person"
       }
