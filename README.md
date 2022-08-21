@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Online Bus Reservation System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is to help people on trips or travelling reserve seat(s) in buses with ease [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
