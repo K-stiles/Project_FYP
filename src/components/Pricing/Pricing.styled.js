@@ -46,11 +46,11 @@ export const SubTitle = styled.h3`
 export const Card = styled.div`
   /* max-width: 300px; */
   /* width: 100%; */
-  height: 650px;
+  height: 600px;
   position: relative;
   /* height: auto; */
   padding: ${({ cardPadding }) =>
-    cardPadding ? cardPadding : "30px 30px 20px"};
+    cardPadding ? cardPadding : "20px 30px 10px"};
 
   display: flex;
   flex-direction: column;
@@ -64,7 +64,7 @@ export const Card = styled.div`
 export const CardTitle = styled.h1`
   font-style: normal;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   line-height: 40px;
   color: #025993;
 `;
@@ -72,7 +72,7 @@ export const CardTitle = styled.h1`
 export const CardSubTitle = styled.h3`
   font-style: normal;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 25px;
   padding-bottom: 10px;
   color: #a9a9aa;
