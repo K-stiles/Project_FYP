@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "title": "Save More",
+    "subTitle": "What You'll Get",
+    "titleIcon": "/images/busIcon.png",
+    "distance": 500,
+    "price": 20,
+    "image": "/images/busImage.png",
+    "renderBtn": false,
+    "label": [
+      {
+        "id": "label-1dfdsv",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      },
+      {
+        "id": "label-2vdfbdf",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      },
+      {
+        "id": "label-3dfbfsbe",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Save More",
+    "subTitle": "What You'll Get",
+    "titleIcon": "/images/busIcon.png",
+    "distance": 500,
+    "price": 20,
+    "image": "/images/busImage.png",
+    "renderBtn": true,
+
+    "label": [
+      {
+        "id": "label-1sbsbsfge",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      },
+      {
+        "id": "label-esgdv2",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Save More",
+    "subTitle": "What You'll Get",
+    "titleIcon": "/images/busIcon.png",
+    "distance": 500,
+    "price": 20,
+    "image": "/images/busImage.png",
+    "renderBtn": true,
+
+    "label": [
+      {
+        "id": "label-ewsfw 1",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      },
+      {
+        "id": "label-2wcwwc",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      },
+      {
+        "id": "label-3cwttwt",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      },
+      {
+        "id": "label-2cetwcrcc",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      },
+      {
+        "id": "label-3ccywt",
+        "labelIcon": "/images/checkCircleIcon.png",
+        "tag": "10% off Booking for another person"
+      }
+    ]
+  }
+]

@@ -1,1 +1,1 @@
-export { default as PricingSection } from "./PricingSection";
+export { default as PricingContainer } from "./PricingContainer";

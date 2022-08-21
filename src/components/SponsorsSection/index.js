@@ -5,20 +5,10 @@ import {
   SectionContainer,
   SectionLabelsWrapper,
   SectionTitle,
+  SponsorLogo,
 } from "./Sponsors.styled";
 
-import {
-  AppStoreIcon,
-  GithubIcon,
-  DiscordIcon,
-  HuaweiIcon,
-  MailchimpIcon,
-  NetflixIcon,
-  RedditIcon,
-  SlackIcon,
-  ShopifyIcon,
-  YoutubeIcon,
-} from "../../assets/svgIcons";
+import { sponsorData } from "../../utils";
 
 export default function SponsorsSection() {
   return (
@@ -26,36 +16,16 @@ export default function SponsorsSection() {
       <SectionContainer>
         <SectionTitle>Sponsors</SectionTitle>
         <SectionLabelsWrapper>
-          <LabelRow>
-            <AppStoreIcon />
-          </LabelRow>
-          <LabelRow>
-            <GithubIcon />
-          </LabelRow>
-          <LabelRow>
-            <DiscordIcon />
-          </LabelRow>
-          <LabelRow>
-            <MailchimpIcon />
-          </LabelRow>
-          <LabelRow>
-            <RedditIcon />
-          </LabelRow>
-          <LabelRow>
-            <SlackIcon />
-          </LabelRow>
-          <LabelRow>
-            <ShopifyIcon />
-          </LabelRow>
-          <LabelRow>
-            <YoutubeIcon />
-          </LabelRow>
-          <LabelRow>
-            <HuaweiIcon />
-          </LabelRow>
-          <LabelRow>
-            <NetflixIcon />
-          </LabelRow>
+          {sponsorData &&
+            sponsorData.map((item) => (
+              <LabelRow key={`sponsor-data-${item.id}`}>
+                <SponsorLogo
+                  src={item.logo}
+                  alt={item.alt}
+                  width={item.width}
+                />
+              </LabelRow>
+            ))}
         </SectionLabelsWrapper>
       </SectionContainer>
     </Section>

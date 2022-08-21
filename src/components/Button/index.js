@@ -4,6 +4,7 @@ export const StyledButton = styled.button`
   cursor: pointer;
   border-radius: 30px;
   transition: transform 0.3s ease 0s;
+  outline: none;
 
   color: #0088a9;
   background-color: #fff;

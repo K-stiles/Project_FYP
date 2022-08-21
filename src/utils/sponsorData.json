@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "width": 75,
+    "alt": "App Store",
+    "logo": "/images/sponsor_1.png"
+  },
+  {
+    "id": "2",
+    "width": 75,
+    "alt": "Github",
+    "logo": "/images/sponsor_2.png"
+  },
+  {
+    "id": "3",
+    "width": 85,
+    "alt": "Mailchimp",
+    "logo": "/images/sponsor_3.png"
+  },
+  {
+    "id": "4",
+    "width": 65,
+    "alt": "Shopify",
+    "logo": "/images/sponsor_4.png"
+  },
+  {
+    "id": "5",
+    "width": 65,
+    "alt": "Slack",
+    "logo": "/images/sponsor_5.png"
+  },
+  {
+    "id": "6",
+    "width": 75,
+    "alt": "YouTube",
+    "logo": "/images/sponsor_6.png"
+  },
+  {
+    "id": "7",
+    "width": 65,
+    "alt": "Redit",
+    "logo": "/images/sponsor_7.png"
+  },
+  {
+    "id": "8",
+    "width": 70,
+    "alt": "Discord",
+    "logo": "/images/sponsor_8.png"
+  },
+  {
+    "id": "9",
+    "width": 25,
+    "alt": "",
+    "logo": "/images/sponsor_9.png"
+  },
+  {
+    "id": "10",
+    "width": 45,
+    "alt": "",
+    "logo": "/images/sponsor_10.png"
+  }
+]

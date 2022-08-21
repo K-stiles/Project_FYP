@@ -53,6 +53,7 @@ export const SectionLabelsWrapper = styled.div`
     height: auto;
   }
 `;
+
 export const LabelRow = styled.div`
   display: flex;
   align-items: center;
@@ -60,4 +61,9 @@ export const LabelRow = styled.div`
   @media (max-width: 1144px) {
     padding: 15px;
   }
+`;
+
+export const SponsorLogo = styled.img`
+  width: ${({ width }) => `${width}px`};
+  height: auto;
 `;
