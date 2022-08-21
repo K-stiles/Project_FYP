@@ -7,7 +7,7 @@ import {
   HeroSection,
   TestimonialSection,
 } from "../../components";
-import { PricingContainer } from "../../container";
+import { BannerContainer, PricingContainer } from "../../container";
 import { HomeWrapper } from "./home.styled";
 
 export default function HomePage() {
@@ -16,6 +16,10 @@ export default function HomePage() {
       <HeroSection />
       <FeatureSponsorWrapper />
       <PricingContainer />
+      <div>
+        <BannerContainer />
+      </div>
+
       <AboutUsSection />
       <FaqSection />
       <TestimonialSection />

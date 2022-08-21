@@ -1,32 +1,32 @@
-import { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./globalStyles";
+// import { useState } from "react";
+// import { BrowserRouter } from "react-router-dom";
+// import { ThemeProvider } from "styled-components";
+// import { GlobalStyles } from "./globalStyles";
 import { NavBar } from "./components";
 import { HomePage } from "./pages";
 
-const DefaultTheme = {
-  background: "#fff",
-  text: "#222",
+// const DefaultTheme = {
+//   background: "#fff",
+//   text: "#222",
 
-  grey: "#ccceee",
+//   grey: "#ccceee",
 
-  white: "#fff",
-  dark: "#222",
-};
-const DarkTheme = {
-  background: "#222",
-  text: "#fff",
+//   white: "#fff",
+//   dark: "#222",
+// };
+// const DarkTheme = {
+//   background: "#222",
+//   text: "#fff",
 
-  grey: "#ccceee",
+//   grey: "#ccceee",
 
-  white: "#fff",
-  dark: "#222",
-};
+//   white: "#fff",
+//   dark: "#222",
+// };
 
 function App() {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-  const theme = isDarkTheme ? DarkTheme : DefaultTheme;
+  // const [isDarkTheme, setIsDarkTheme] = useState(false);
+  // const theme = isDarkTheme ? DarkTheme : DefaultTheme;
 
   return (
     <>
