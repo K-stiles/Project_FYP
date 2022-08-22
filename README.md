@@ -2,7 +2,7 @@
 
 This project is to help people on trips or travelling reserve seat(s) in buses with ease [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Features
 
 In the project directory, you can run:
 
