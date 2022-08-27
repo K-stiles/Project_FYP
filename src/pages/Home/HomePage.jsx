@@ -9,6 +9,7 @@ import {
 import {
   AboutUsContainer,
   BannerContainer,
+  FaqContainer,
   PricingContainer,
 } from "../../container";
 import { HomeWrapper } from "./home.styled";
@@ -21,7 +22,7 @@ export default function HomePage() {
       <PricingContainer />
       <BannerContainer />
       <AboutUsContainer />
-      <FaqSection />
+      <FaqContainer />
       <TestimonialSection />
       <ContactSection />
     </HomeWrapper>

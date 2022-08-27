@@ -7,7 +7,7 @@ export { default as FeatureSection } from "./FeatureSection";
 export { default as FeatureSponsorWrapper } from "./FeatureSponsorWrapper";
 
 export { default as ContactSection } from "./ContactSection";
-export { default as FaqSection } from "./FaqSection";
+export { default as Faq } from "./Faq";
 export { default as Pricing } from "./Pricing";
 
 export { default as Banner } from "./Banner";
