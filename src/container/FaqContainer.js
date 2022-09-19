@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef, forwardRef } from "react";
+import React, { useState } from "react";
 import { Faq } from "../components";
-import { Answer } from "../components/Faq/Faq.styled";
 
 import { faqData } from "../utils";
 
@@ -12,15 +11,16 @@ const Image = {
 };
 
 export default function FaqContainer() {
-  const answerRef = useRef(null);
-  const [scrollHeight, setScrollHeight] = useState(0);
+  const [clicked, setClicked] = useState(null);
+  // const [iconRotation, setIconRotation] = useState(false);
+  function toggleAccordion(index) {
+    if (clicked === index) {
+      return setClicked(null);
+    }
 
-  function check() {
-    setScrollHeight(answerRef.current.scrollHeight);
+    setClicked(index);
+    console.log(clicked, index);
   }
-  //   useEffect(() => {
-  //     check();
-  //   }, []);
 
   return (
     <Faq>
@@ -39,16 +39,17 @@ export default function FaqContainer() {
             <Faq.FaqTitle>Faq</Faq.FaqTitle>
 
             <Faq.Accordion>
-              {faqData.map((item, id) => (
-                <Faq.AccordionContent key={`faq-data-${id}`}>
-                  <Faq.Header onClick={check}>
+              {faqData.map((item, index) => (
+                <Faq.AccordionContent key={`faq-data-${index}`}>
+                  <Faq.Header onClick={() => toggleAccordion(index)}>
                     <Faq.Question>{item.question}</Faq.Question>
-                    <Faq.Icon />
+
+                    {clicked === index ? <Faq.IconDown /> : <Faq.IconUp />}
                   </Faq.Header>
-                  <Answer ref={answerRef} scrollHeight={scrollHeight}>
-                    {item.answer}
-                  </Answer>
-                  {/* {item.showLine && <Faq.Line />} */}
+                  {clicked === index ? (
+                    <Faq.Answer>{item.answer}</Faq.Answer>
+                  ) : null}
+                  {item.showLine && <Faq.Line />}
                 </Faq.AccordionContent>
               ))}
             </Faq.Accordion>
@@ -58,10 +59,3 @@ export default function FaqContainer() {
     </Faq>
   );
 }
-
-/* <Faq.Answer >
-                   When the CIA's most skilled operative-whose true identity is
-                   known to none-accidentally uncovers dark agency secrets, a
-                   psychopathic former colleague puts a bounty on his head,
-                   setting off a global manhunt by international assassins.
-                 </Faq.Answer> */

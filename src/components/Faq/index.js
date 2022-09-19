@@ -8,7 +8,8 @@ import {
   FaqContent,
   FaqTitle,
   Header,
-  Icon,
+  IconDown,
+  IconUp,
   Image,
   ImageWrapper,
   Line,
@@ -43,8 +44,11 @@ Faq.Answer = function FaqAnswer({ children, ...restPops }) {
 Faq.Image = function FaqImage({ ...restPops }) {
   return <Image {...restPops} />;
 };
-Faq.Icon = function FaqIcon({ ...restPops }) {
-  return <Icon {...restPops} />;
+Faq.IconDown = function FaqIconDown({ ...restPops }) {
+  return <IconDown {...restPops} />;
+};
+Faq.IconUp = function FaqIconUp({ ...restPops }) {
+  return <IconUp {...restPops} />;
 };
 Faq.Wrapper = function FaqWrapper({ children, ...restPops }) {
   return <Wrapper {...restPops}>{children}</Wrapper>;

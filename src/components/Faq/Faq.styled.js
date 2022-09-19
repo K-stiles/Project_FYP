@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaChevronUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 export const Section = styled.section`
   padding: 10px 10%;
@@ -27,6 +27,13 @@ export const FaqContainer = styled.div`
 `;
 export const Accordion = styled.div`
   /* background-color: pink; */
+  overflow-y: auto;
+  height: 564px;
+  padding-bottom: 15px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 export const ImageWrapper = styled.div`
   padding: 60px;
@@ -49,14 +56,14 @@ export const Line = styled.div`
   display: block;
   height: 1px;
   width: 100%;
-  /* margin: 15px 0; */
-  margin: 5px 0;
   background: #025993;
+  opacity: 0.3;
+
+  margin: 10px 0px 0px;
 `;
 export const AccordionContent = styled.div`
-  /* ---------------------codingLab---------------------------------- */
-  overflow: hidden;
   border: 1px solid #ffd6b3;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
 `;
 
 export const Title = styled.h3`
@@ -107,19 +114,30 @@ export const Answer = styled.p`
 
   color: #025993;
   /* ---------------------codingLab---------------------------------- */
-  padding: 0 15px;
-  height: ${({ scrollHeight }) => (scrollHeight ? `${scrollHeight}px` : "0px")};
-  transition: all 0.3s linear 0s;
+  padding: 0 15px 5px;
+  /* height: auto; */
+  /* overflow: hidden; */
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
 `;
 
 export const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: 500px;
 `;
-export const Icon = styled(FaChevronUp)`
+export const IconDown = styled(FaChevronDown)`
   width: 15px;
   height: auto;
 
   color: #02416b;
-  /* transform: rotate(180deg); */
+  transform: rotate(180deg);
+  /* transform: ${({ rotate }) => (rotate ? rotate(`180deg`) : null)}; */
+  transition: all 0.5s ease 0s;
+`;
+export const IconUp = styled(FaChevronUp)`
+  width: 15px;
+  height: auto;
+
+  color: #02416b;
+  transform: rotate(180deg);
+  transition: all 0.5s ease 0s;
 `;
