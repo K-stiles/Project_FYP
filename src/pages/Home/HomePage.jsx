@@ -1,16 +1,14 @@
 import React from "react";
-import {
-  ContactSection,
-  FaqSection,
-  FeatureSponsorWrapper,
-  HeroSection,
-  TestimonialSection,
-} from "../../components";
+import { FeatureSponsorWrapper, HeroSection } from "../../components";
 import {
   AboutUsContainer,
   BannerContainer,
+  ContactContainer,
   FaqContainer,
+  JoinUsBannerContainer,
   PricingContainer,
+  TestimonialContainer,
+  TravelledRoutesContainer,
 } from "../../container";
 import { HomeWrapper } from "./home.styled";
 
@@ -22,9 +20,11 @@ export default function HomePage() {
       <PricingContainer />
       <BannerContainer />
       <AboutUsContainer />
+      <TravelledRoutesContainer />
+      <JoinUsBannerContainer />
       <FaqContainer />
-      <TestimonialSection />
-      <ContactSection />
+      <TestimonialContainer />
+      <ContactContainer />
     </HomeWrapper>
   );
 }

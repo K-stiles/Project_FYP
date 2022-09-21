@@ -4,7 +4,7 @@ import { Faq } from "../components";
 import { faqData } from "../utils";
 
 const Image = {
-  img: "/images/faq-img.png",
+  img: "/images/Faq_image.png",
   alt: "faq-img",
   icon: "/images/angle-small-down.png",
   Iconalt: "chevron",

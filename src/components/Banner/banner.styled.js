@@ -6,7 +6,8 @@ export const Section = styled.section`
 export const Wrapper = styled.div`
   height: 100%;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: #d7f1ff;
+  /* background-color: rgba(255, 255, 255, 0.85); */
 `;
 export const Container = styled.div`
   display: grid;

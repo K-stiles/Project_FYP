@@ -14,13 +14,14 @@ export const Wrapper = styled.div`
   justify-content: center;
 `;
 export const Container = styled.div`
-  /* height: 660px; */
-  background: rgba(255, 255, 255, 0.85);
+  height: 700px;
+  width: 100%;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 1.5fr 2fr;
   padding: 10px 30px;
-  margin-top: 20px;
   border-radius: 10px;
+  background: #d7f1ff;
 `;
 export const FaqContainer = styled.div`
   /* background-color: pink; */
@@ -37,8 +38,9 @@ export const Accordion = styled.div`
 `;
 export const ImageWrapper = styled.div`
   padding: 60px;
-  width: 100%;
-  height: 90%;
+  width: 460px;
+  height: 100%;
+  /* height: 800px; */
   /* background-color: blueviolet; */
 `;
 
@@ -62,7 +64,7 @@ export const Line = styled.div`
   margin: 10px 0px 0px;
 `;
 export const AccordionContent = styled.div`
-  border: 1px solid #ffd6b3;
+  /* border: 1px solid #ffd6b3; */
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
 `;
 
@@ -122,7 +124,7 @@ export const Answer = styled.p`
 
 export const Image = styled.img`
   width: 100%;
-  height: 500px;
+  height: 100%;
 `;
 export const IconDown = styled(FaChevronDown)`
   width: 15px;

@@ -2,3 +2,10 @@ export { default as PricingContainer } from "./PricingContainer";
 export { default as BannerContainer } from "./BannerContainer";
 export { default as AboutUsContainer } from "./AboutUsContainer";
 export { default as FaqContainer } from "./FaqContainer";
+export { default as TestimonialContainer } from "./TestimonialContainer";
+export { default as ContactContainer } from "./ContactContainer";
+
+export { default as JoinUsBannerContainer } from "./JoinUsBannerContainer";
+export { default as TravelledRoutesContainer } from "./TravelledRoutesContainer";
+
+export { default as FooterContainer } from "./FooterContainer";

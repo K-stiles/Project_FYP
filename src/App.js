@@ -3,6 +3,7 @@
 // import { ThemeProvider } from "styled-components";
 // import { GlobalStyles } from "./globalStyles";
 import { NavBar } from "./components";
+import { FooterContainer } from "./container";
 import { HomePage } from "./pages";
 
 // const DefaultTheme = {
@@ -32,6 +33,7 @@ function App() {
     <>
       <NavBar />
       <HomePage />
+      <FooterContainer />
 
       {/* <ThemeProvider theme={theme}>
         <BrowserRouter>
