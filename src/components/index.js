@@ -1,6 +1,11 @@
 export { default as NavBar } from "./navbar";
 export { default as Footer } from "./Footer";
 
+export { default as Login } from "./Login";
+export { default as Signup } from "./Signup";
+export { default as ConfirmSignup } from "./SignupConfirm";
+export { default as SuccessConfirmSignup } from "./SignupConfirmSuccess";
+
 export { default as PrimarySolidBtn } from "./Button";
 export { default as HeroSection } from "./HeroSection";
 

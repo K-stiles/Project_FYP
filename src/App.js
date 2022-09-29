@@ -4,7 +4,14 @@
 // import { GlobalStyles } from "./globalStyles";
 import { NavBar } from "./components";
 import { FooterContainer } from "./container";
-import { HomePage } from "./pages";
+import {
+  ConfirmSignupPage,
+  HomePage,
+  SignupPage,
+  SuccessSignupConfirmPage,
+  UserDashboardPage,
+} from "./pages";
+import LoginPage from "./pages/Auth/LoginPage";
 
 // const DefaultTheme = {
 //   background: "#fff",
@@ -31,9 +38,14 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      {/* <NavBar />
       <HomePage />
-      <FooterContainer />
+      <FooterContainer /> */}
+      {/* <SignupPage /> */}
+      {/* <ConfirmSignupPage /> */}
+      {/* <SuccessSignupConfirmPage /> */}
+      {/* <LoginPage /> */}
+      <UserDashboardPage />
 
       {/* <ThemeProvider theme={theme}>
         <BrowserRouter>
