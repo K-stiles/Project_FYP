@@ -1,59 +1,71 @@
-// import { useState } from "react";
-// import { BrowserRouter } from "react-router-dom";
-// import { ThemeProvider } from "styled-components";
-// import { GlobalStyles } from "./globalStyles";
-import { NavBar } from "./components";
-import { FooterContainer } from "./container";
+import { useState } from "react";
+import { ThemeProvider } from "styled-components";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./Layout";
+
+import CUSTOM_DEFAULT_THEME, { CUSTOM_DARK_THEME } from "./Constants/theme";
+
 import {
-  ConfirmSignupPage,
-  HomePage,
-  SignupPage,
-  SuccessSignupConfirmPage,
-  UserDashboardPage,
+   AboutPage,
+   ConfirmSignupPage,
+   HomePage,
+   LoginPage,
+   SignupPage,
+   SuccessSignupConfirmPage,
+   UserDashboardPage,
 } from "./pages";
-import LoginPage from "./pages/Auth/LoginPage";
 
-// const DefaultTheme = {
-//   background: "#fff",
-//   text: "#222",
-
-//   grey: "#ccceee",
-
-//   white: "#fff",
-//   dark: "#222",
-// };
-// const DarkTheme = {
-//   background: "#222",
-//   text: "#fff",
-
-//   grey: "#ccceee",
-
-//   white: "#fff",
-//   dark: "#222",
-// };
+export const router = createBrowserRouter([
+   {
+      path: "/",
+      element: <Layout />,
+      children: [
+         {
+            index: true,
+            element: <HomePage />,
+         },
+      ],
+   },
+   {
+      path: "/about",
+      element: <AboutPage />,
+   },
+   {
+      path: "/login",
+      element: <LoginPage />,
+   },
+   {
+      path: "/register",
+      element: <SignupPage />,
+   },
+   {
+      path: "/confirmRegisteration",
+      element: <ConfirmSignupPage />,
+   },
+   {
+      path: "/registeration-succcess",
+      element: <SuccessSignupConfirmPage />,
+   },
+   {
+      path: "/dashboard",
+      element: <UserDashboardPage />,
+   },
+]);
 
 function App() {
-  // const [isDarkTheme, setIsDarkTheme] = useState(false);
-  // const theme = isDarkTheme ? DarkTheme : DefaultTheme;
+   const [isDarkTheme, setIsDarkTheme] = useState(false);
+   const theme = isDarkTheme ? CUSTOM_DARK_THEME : CUSTOM_DEFAULT_THEME;
 
-  return (
-    <>
-      {/* <NavBar />
-      <HomePage />
-      <FooterContainer /> */}
-      {/* <SignupPage /> */}
-      {/* <ConfirmSignupPage /> */}
-      {/* <SuccessSignupConfirmPage /> */}
-      {/* <LoginPage /> */}
-      <UserDashboardPage />
+   //usage
+   /* background: ${({ theme }) => theme.secondary}; */
 
-      {/* <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <GlobalStyles />
-        </BrowserRouter>
-      </ThemeProvider> */}
-    </>
-  );
+   return (
+      <>
+         <ThemeProvider theme={theme}>
+            <RouterProvider router={router} />
+         </ThemeProvider>
+      </>
+   );
 }
 
 export default App;

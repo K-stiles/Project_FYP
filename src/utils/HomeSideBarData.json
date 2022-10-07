@@ -1,0 +1,154 @@
+[
+   {
+      "id": "one-d",
+      "section": "Dashboard",
+      "icon": "icon-1",
+      "labels": [
+         {
+            "name": "Reservation Type",
+            "icon": "",
+            "number": "10",
+            "subLabel": [
+               {
+                  "option": "Single",
+                  "icon": ""
+               },
+               {
+                  "option": "Group",
+                  "icon": ""
+               },
+               {
+                  "option": "Another Person",
+                  "icon": ""
+               }
+            ]
+         },
+         {
+            "name": "Bus Type",
+            "icon": "",
+            "number": "83",
+            "subLabel": [
+               {
+                  "option": "Standard",
+                  "icon": ""
+               },
+               {
+                  "option": "Single Seat",
+                  "icon": ""
+               },
+               {
+                  "option": "Double Seat",
+                  "icon": ""
+               },
+               {
+                  "option": "VIP",
+                  "icon": ""
+               },
+               {
+                  "option": "Luxury Executive",
+                  "icon": ""
+               }
+            ]
+         },
+         {
+            "name": "Total Number Of Groups",
+            "icon": "",
+            "number": "",
+            "subLabel": [
+               {
+                  "option": "Counter component",
+                  "icon": ""
+               }
+            ]
+         },
+         {
+            "name": "Total Group Members",
+            "icon": "",
+            "number": "",
+            "subLabel": [
+               {
+                  "option": "Counter component 1",
+                  "icon": ""
+               },
+               {
+                  "option": "Counter component 2",
+                  "icon": ""
+               },
+               {
+                  "option": "Counter component 3",
+                  "icon": ""
+               }
+            ]
+         },
+         {
+            "name": "Payment  Method",
+            "icon": "",
+            "number": "",
+            "subLabel": [
+               {
+                  "option": "Mobile money",
+                  "icon": ""
+               },
+               {
+                  "option": "Visa Card",
+                  "icon": ""
+               },
+               {
+                  "option": "PayPal",
+                  "icon": ""
+               },
+               {
+                  "option": "Master Card",
+                  "icon": ""
+               },
+               {
+                  "option": "Others",
+                  "icon": ""
+               }
+            ]
+         }
+      ]
+   },
+   {
+      "id": "two-p",
+      "section": "Preferences",
+      "icon": "icon-2",
+      "labels": [
+         {
+            "name": "Language",
+            "icon": "",
+            "number": ""
+         },
+
+         {
+            "name": "Help & Center",
+            "icon": "",
+            "number": ""
+         },
+
+         {
+            "name": "Notifications",
+            "icon": "",
+            "number": ""
+         },
+
+         {
+            "name": "Settings",
+            "icon": "",
+            "number": ""
+         },
+
+         {
+            "name": "Switch Theme",
+            "icon": "",
+            "number": ""
+         }
+      ]
+   },
+   {
+      "id": "three-p",
+      "section": "Other",
+      "icon": "icon-3",
+      "number": ""
+   }
+]

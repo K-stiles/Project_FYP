@@ -22,5 +22,7 @@ export { default as JoinUs } from "./JoinUsBanner";
 export { default as TravelledRoutes } from "./TravelledRoutes";
 
 export { default as About } from "./AboutUsSection";
-
 export { default as Testimonial } from "./Testimonial";
+
+export { default as Sidebar } from "./SideBar";
+export { default as Dashboard } from "./Dashboard";

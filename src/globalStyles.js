@@ -18,6 +18,7 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
     /* font-size: 1rem; */
   /* background: #fff; */
-  background: #02416b;
+  background: #F7F8FA;
+  /* background: #02416b; */
 }
 `;

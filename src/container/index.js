@@ -14,3 +14,6 @@ export { default as JoinUsBannerContainer } from "./JoinUsBannerContainer";
 export { default as TravelledRoutesContainer } from "./TravelledRoutesContainer";
 
 export { default as FooterContainer } from "./FooterContainer";
+
+export { default as SidebarContainer } from "./SidebarContainer";
+export { default as DashboardContainer } from "./DashboardContainer";

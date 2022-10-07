@@ -1,0 +1,42 @@
+[
+   {
+      "label": "Kumasi Reservations",
+      "number": "10",
+      "percentage": "20",
+      "icon": "icon path",
+      "primary": "#0DA06A",
+      "secondary": "#E9FAEB",
+      "graph": true,
+      "direction": "up"
+   },
+   {
+      "label": "Accra Reservations",
+      "number": "2",
+      "percentage": "5",
+      "icon": "icon path",
+      "primary": "#874CD1",
+      "secondary": "#EDE9FA",
+      "graph": true,
+      "direction": "down"
+   },
+   {
+      "label": "Brong Ahafo Reservations",
+      "number": "10",
+      "percentage": "5",
+      "icon": "icon path",
+      "primary": "#FB7E15",
+      "secondary": "#FFF5EB",
+      "graph": true,
+      "direction": "up"
+   },
+   {
+      "label": "Takorade Reservations",
+      "number": "22",
+      "percentage": "15",
+      "icon": "icon path",
+      "primary": "#4779CC",
+      "secondary": "#EBF3FF",
+      "graph": true,
+      "direction": "up"
+   }
+]

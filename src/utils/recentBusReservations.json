@@ -1,0 +1,69 @@
+[
+   {
+      "headers": [
+         {
+            "name": "SCHEDULE ID"
+         },
+         {
+            "name": "BUS STOP"
+         },
+         {
+            "name": "RESERVATION TYPE"
+         },
+         {
+            "name": "DEPARTURE"
+         },
+         {
+            "name": "ARRIVAL"
+         },
+         {
+            "name": "STATUS"
+         },
+         {
+            "name": "AVAILABLE SEATS"
+         },
+         {
+            "name": "PRICE"
+         }
+      ],
+
+      "row": [
+         {
+            "schedule_ID": "CBT8583",
+            "bus_stop": "view stop",
+            "reservattion_type ": [
+               { "reservattion_ID": "#290888890" },
+               { "reservattion_type ": "Single Reservation" },
+               { "for": "self" }
+            ],
+            "Departure ": [{ "date": "01 - 10 - 2022", "time": "07:30 am" }],
+            "Arrival ": [{ "date": "01 - 10 - 2022", "time": "07:30 am" }],
+            "status ": [
+               { "current": "on road" },
+               { "primary ": "#FB7E15" },
+               { "secondary ": "#FFF5EB" }
+            ],
+            "seats ": "20",
+            "price ": "85"
+         },
+         {
+            "schedule_ID": "CBT8583",
+            "bus_stop": "view stop",
+            "reservattion_type ": [
+               { "reservattion_ID": "#290888890" },
+               { "reservattion_type ": "Group Reservation" },
+               { "for": "Group " }
+            ],
+            "Departure ": [{ "date": "01 - 10 - 2022", "time": "07:30 am" }],
+            "Arrival ": [{ "date": "01 - 10 - 2022", "time": "07:30 am" }],
+            "status ": [
+               { "current": "Arrived" },
+               { "primary ": "#0DA06A" },
+               { "secondary ": "#F0FFFA" }
+            ],
+            "seats ": "80",
+            "price ": "89"
+         }
+      ]
+   }
+]
