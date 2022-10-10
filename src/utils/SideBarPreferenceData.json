@@ -1,0 +1,46 @@
+[
+   {
+      "id": "preference-1232432y76257738",
+      "name": "Language",
+      "icon": "/images/comments-question.png",
+      "iconAlt": "comments-question",
+      "number": "",
+      "route": "/"
+   },
+
+   {
+      "id": "preference-y5647980976257738",
+      "name": "Help & Center",
+      "icon": "/images/info-icon.png",
+      "iconAlt": "info",
+      "number": "",
+      "route": "/about"
+   },
+
+   {
+      "id": "preference-1232432y7625bsjkxvko",
+      "name": "Notifications",
+      "icon": "/images/lock_clock.png",
+      "iconAlt": "lock_clock",
+      "number": "10",
+      "route": "/login"
+   },
+
+   {
+      "id": "preference-sndkjmz;2y76257738",
+      "name": "Settings",
+      "icon": "/images/settings.png",
+      "iconAlt": "settings",
+      "number": "",
+      "route": "/"
+   },
+
+   {
+      "id": "preference-dfbs2432ysdvs5773dsk8",
+      "name": "Switch Theme",
+      "icon": "/images/fill-container.png",
+      "iconAlt": "fill-container",
+      "number": "",
+      "route": "/"
+   }
+]

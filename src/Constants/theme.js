@@ -6,10 +6,11 @@ const CUSTOM_DEFAULT_THEME = {
    text: "#1F2633",
    card: "#FFFFFF",
    border: "#E9E9E9",
+   // border: "#ebeef2",
 
    sideTitle: "#98A2B2",
 
-   gray: "#B8BFCC",
+   gray: "#98A2B3",
    gray_label: "#656464",
    gray_deep: "#505050",
    red: "#EF4444",

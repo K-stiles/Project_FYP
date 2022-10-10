@@ -1,6 +1,6 @@
 import React from "react";
 import { Sidebar } from "../components";
-import { HomeSideBarData } from "../utils";
+import { SideBarDashBoardData, SideBarPreferenceData } from "../utils";
 
 const Img = {
    profile: "/images/sideBarImage.png",
@@ -9,10 +9,10 @@ const Img = {
    userIconAlt: "up down arrrow.png",
    headerIcon: "/images/dashboard_icon.png",
    headerIconAlt: "dashboard icon",
-   arrowIcon: "/images/blue_up_arrow.png",
-   arrowIconAlt: "arrow icon",
-   menuItemIcon: "/images/chair.png",
-   menuItemIconAlt: "chair icon",
+   arr: "/images/blue_up_arrow.png",
+   arrAlt: "arrow icon",
+   Icon: "/images/chair.png",
+   IconAlt: "chair icon",
 };
 
 export default function SidebarContainer() {
@@ -51,59 +51,97 @@ export default function SidebarContainer() {
             </Sidebar.UserSection>
 
             <Sidebar.MenuSection>
-               {HomeSideBarData?.map((section) => {
-                  // console.log(section.id);
-                  return (
-                     <Sidebar.SectionHeader key={`item--${section.id}`}>
-                        <Sidebar.SectionTitle>
-                           {section.section}{" "}
-                        </Sidebar.SectionTitle>
-                        <Sidebar.SectionIconWrapper>
-                           <Sidebar.SectionIcon
-                              src={Img.arrowIcon}
-                              alt={Img.arrowIconAlt}
-                           />
-                        </Sidebar.SectionIconWrapper>
-                     </Sidebar.SectionHeader>
-                  );
-               })}
+               {/* DASHBOARD - SECTION*/}
 
-               {/* {HomeSideBarData?.map((section) => {
-                  const { labels } = section;
-                  // console.log(labels);
-                  return (
-                     <div key={`item---${section.id}`}>
-                        {labels?.map((item) => {
-                           console.log(item);
-                           return (
-                              <Sidebar.MenuItem key={`item---${item.name}`}>
-                                 <Sidebar.MenuItemLink>
-                                    <Sidebar.MenuIconWapper>
-                                       <Sidebar.MenuIcon
-                                          src={Img.menuItemIcon}
-                                          alt={Img.menuItemIconAlt}
-                                       />
-                                    </Sidebar.MenuIconWapper>
-                                    <Sidebar.ItemLabel>
-                                       Reservation Type
-                                    </Sidebar.ItemLabel>
+               <Sidebar.SectionHeader>
+                  <Sidebar.SectionTitle>DashBoard</Sidebar.SectionTitle>
+                  <Sidebar.SectionIconWrapper>
+                     <Sidebar.SectionIcon src={Img.arr} alt={Img.arrAlt} />
+                  </Sidebar.SectionIconWrapper>
+               </Sidebar.SectionHeader>
+               <Sidebar.SubMenu>
+                  {SideBarDashBoardData?.map((label) => {
+                     return (
+                        <Sidebar.SubMenuItem key={`item--${label.id}`}>
+                           <Sidebar.MenuItemLink>
+                              <Sidebar.MenuIconWapper>
+                                 <Sidebar.MenuIcon
+                                    src={label.icon}
+                                    alt={label.iconAlt}
+                                 />
+                              </Sidebar.MenuIconWapper>
+                              <Sidebar.ItemLabel>
+                                 {label.name}
+                              </Sidebar.ItemLabel>
+                              <Sidebar.NumberWrapper>
+                                 <Sidebar.LabelNumber>3</Sidebar.LabelNumber>
+                              </Sidebar.NumberWrapper>
+                           </Sidebar.MenuItemLink>
+
+                           {label.subLabel &&
+                              label.subLabel.map((item) => (
+                                 <Sidebar.SubMenuOptions
+                                    key={`item--${item.option}`}
+                                 >
+                                    <Sidebar.OptionsLable>
+                                       {item.option}
+                                    </Sidebar.OptionsLable>
+                                 </Sidebar.SubMenuOptions>
+                              ))}
+                        </Sidebar.SubMenuItem>
+                     );
+                  })}
+               </Sidebar.SubMenu>
+
+               {/* PREFEENCE - SECTION */}
+
+               <Sidebar.SectionHeader>
+                  <Sidebar.SectionTitle>Preferences</Sidebar.SectionTitle>
+                  <Sidebar.SectionIconWrapper>
+                     <Sidebar.SectionIcon src={Img.arr} alt={Img.arrAlt} />
+                  </Sidebar.SectionIconWrapper>
+               </Sidebar.SectionHeader>
+               <Sidebar.SubMenu>
+                  <div>
+                     {SideBarPreferenceData?.map((label) => {
+                        return (
+                           <Sidebar.SubMenuItem key={`item--${label.id}`}>
+                              <Sidebar.MenuItemLink to={label.route}>
+                                 <Sidebar.MenuIconWapper>
+                                    <Sidebar.MenuIcon
+                                       src={label.icon}
+                                       alt={label.iconAlt}
+                                    />
+                                 </Sidebar.MenuIconWapper>
+                                 <Sidebar.ItemLabel>
+                                    {label.name}
+                                 </Sidebar.ItemLabel>
+                                 {label.number && (
                                     <Sidebar.NumberWrapper>
                                        <Sidebar.LabelNumber>
-                                          3
+                                          {label.number}
                                        </Sidebar.LabelNumber>
                                     </Sidebar.NumberWrapper>
-                                 </Sidebar.MenuItemLink>
-                              </Sidebar.MenuItem>
-                           );
-                        })}
-                     </div>
-                  );
-               })} */}
-            </Sidebar.MenuSection>
+                                 )}
+                              </Sidebar.MenuItemLink>
+                           </Sidebar.SubMenuItem>
+                        );
+                     })}
+                  </div>
+               </Sidebar.SubMenu>
 
-            {/* <Sidebar.LogoutSection>
-               <div>LogOut</div>
-            </Sidebar.LogoutSection> */}
+               {/* LOGOUT - SECTION */}
+
+               <Sidebar.LogoutSection>
+                  <Sidebar.MenuIconWapper>
+                     <Sidebar.MenuIcon
+                        src={"/images/sign-out-alt.png"}
+                        alt={"sign-out"}
+                     />
+                  </Sidebar.MenuIconWapper>
+                  <Sidebar.LogoutText>LogOut</Sidebar.LogoutText>
+               </Sidebar.LogoutSection>
+            </Sidebar.MenuSection>
          </Sidebar.SideBar>
       </Sidebar>
    );

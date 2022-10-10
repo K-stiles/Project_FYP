@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
    top: 0;
    left: 0;
    height: 100%;
-   width: 250px;
+   width: 280px;
    z-index: 100;
 `;
 export const SideBar = styled.div`
@@ -131,7 +131,12 @@ export const UserEmail = styled.p`
 export const MenuSection = styled.ul`
    height: 100vh;
    overflow: auto;
-   background-color: ${({ theme }) => theme.white};
+   padding-bottom: 200px;
+   background-color: ${({ theme }) => theme.background};
+
+   &::-webkit-scrollbar {
+      display: none;
+   }
 `;
 export const SectionHeader = styled.div`
    width: 100%;
@@ -159,14 +164,6 @@ export const SectionIconWrapper = styled.div`
 export const SectionIcon = styled.img`
    width: 100%;
 `;
-
-export const MenuItem = styled.li`
-   width: 100%;
-   height: 50px;
-   list-style: none;
-   padding: 15px 20px;
-   /* background-color: ${({ theme }) => theme.primary}; */
-`;
 export const MenuItemLink = styled(Link)`
    text-decoration: none;
    color: inherit;
@@ -174,6 +171,9 @@ export const MenuItemLink = styled(Link)`
    display: flex;
    align-items: center;
    gap: 10px;
+   padding-right: 10px;
+
+   margin-top: 25px;
 `;
 export const ItemLabel = styled.h3`
    font-style: normal;
@@ -211,14 +211,51 @@ export const MenuIcon = styled.img`
    width: 100%;
 `;
 
+export const SubMenu = styled.ul`
+   padding: 6px 6px 14px 20px;
+   /* background-color: cyan; */
+`;
+export const SubMenuItem = styled.li`
+   list-style: none;
+   &:nth-child(1) {
+      margin-top: -20px;
+   }
+`;
+export const SubMenuOptions = styled.ul`
+   padding: 6px 6px 0px 60px;
+`;
+export const OptionsLable = styled.li`
+   list-style: none;
+
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 18px;
+   text-transform: capitalize;
+   padding: 5px 0;
+   color: ${({ theme }) => theme.gray_label};
+`;
+
 // ------------- Logout Section ----------//
 export const LogoutSection = styled.div`
-   position: fixed;
-   bottom: 0;
+   display: flex;
+   align-items: center;
+   gap: 10px;
 
-   width: 250px;
-   padding: 20px 20px;
-   /* margin-top: auto; */
-   color: #fff;
-   background-color: black;
+   margin-top: 3rem;
+   padding: 20px;
+   cursor: pointer;
+   /* background-color: red; */
+`;
+
+export const LogoutText = styled.h3`
+   font-style: normal;
+   font-weight: 500;
+   font-size: 1rem;
+   line-height: 18px;
+   display: flex;
+   align-items: center;
+   text-transform: capitalize;
+
+   color: ${({ theme }) => theme.text};
 `;

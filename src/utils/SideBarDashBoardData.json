@@ -1,0 +1,132 @@
+[
+   {
+      "id": "dashboard-1232432y76257738",
+      "name": "Reservation Type",
+      "icon": "/images/chair.png",
+      "iconAlt": "chair",
+      "number": "10",
+      "subLabel": [
+         {
+            "option": "Single",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Group",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Another Person",
+            "iconAlt": "",
+            "icon": "icon"
+         }
+      ]
+   },
+   {
+      "id": "dashboard-1232432yvygjkklm",
+      "name": "Bus Type",
+      "icon": "/images/bus.png",
+      "iconAlt": "bus",
+      "number": "83",
+      "subLabel": [
+         {
+            "option": "Standard",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Single Seat",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Double Seat",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "VIP",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Luxury Executive",
+            "iconAlt": "",
+            "icon": "icon"
+         }
+      ]
+   },
+   {
+      "id": "dashboard-bjjnnknkj32432y76257738",
+      "name": "Total Number Of Groups",
+      "icon": "/images/users.png",
+      "iconAlt": "users",
+      "number": "",
+      "subLabel": [
+         {
+            "option": "Counter component",
+            "iconAlt": "",
+            "icon": "icon"
+         }
+      ]
+   },
+   {
+      "id": "dashboard-12324llllooo68",
+      "name": "Total Group Members",
+      "icon": "/images/users.png",
+      "iconAlt": "users",
+      "number": "",
+      "subLabel": [
+         {
+            "option": "Counter component 1",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Counter component 2",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Counter component 3",
+            "iconAlt": "",
+            "icon": "icon"
+         }
+      ]
+   },
+   {
+      "id": "dashboard-12324njbjxjbnjasbvxy76257738",
+      "name": "Payment  Method",
+      "icon": "/images/coins.png",
+      "iconAlt": "coins",
+      "number": "",
+      "subLabel": [
+         {
+            "option": "SMobile money",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Visa Card",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "PayPal",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Master Card",
+            "iconAlt": "",
+            "icon": "icon"
+         },
+         {
+            "option": "Others",
+            "iconAlt": "",
+            "icon": "icon"
+         }
+      ]
+   }
+]

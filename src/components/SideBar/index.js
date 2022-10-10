@@ -9,19 +9,24 @@ import {
    LabelNumber,
    Line,
    LogoutSection,
+   LogoutText,
    MenuIcon,
    MenuIconWapper,
-   MenuItem,
+   // MenuItem,
    MenuItemLink,
    MenuSection,
    NotifyNumber,
    Number,
    NumberWrapper,
+   OptionsLable,
    SectionHeader,
    SectionIcon,
    SectionIconWrapper,
    SectionTitle,
    SideBar,
+   SubMenu,
+   SubMenuItem,
+   SubMenuOptions,
    UpdownIcon,
    UpdownIconWapper,
    UserEmail,
@@ -127,9 +132,9 @@ Sidebar.SectionIcon = function SidebarSectionIcon({ ...restProps }) {
 Sidebar.MenuSection = function SidebarMenuSection({ children, ...restProps }) {
    return <MenuSection {...restProps}>{children}</MenuSection>;
 };
-Sidebar.MenuItem = function SidebarMenuItem({ children, ...restProps }) {
-   return <MenuItem {...restProps}>{children}</MenuItem>;
-};
+// Sidebar.MenuItem = function SidebarMenuItem({ children, ...restProps }) {
+//    return <MenuItem {...restProps}>{children}</MenuItem>;
+// };
 Sidebar.MenuItemLink = function SidebarMenuItemLink({
    children,
    ...restProps
@@ -157,10 +162,32 @@ Sidebar.MenuIconWapper = function SidebarMenuIconWapper({
 Sidebar.MenuIcon = function SidebarMenuIcon({ children, ...restProps }) {
    return <MenuIcon {...restProps}>{children}</MenuIcon>;
 };
+Sidebar.SubMenu = function SidebarSubMenu({ children, ...restProps }) {
+   return <SubMenu {...restProps}>{children}</SubMenu>;
+};
+Sidebar.SubMenuItem = function SidebarSubMenuItem({ children, ...restProps }) {
+   return <SubMenuItem {...restProps}>{children}</SubMenuItem>;
+};
+Sidebar.SubMenuOptions = function SidebarSubMenuOptions({
+   children,
+   ...restProps
+}) {
+   return <SubMenuOptions {...restProps}>{children}</SubMenuOptions>;
+};
+Sidebar.OptionsLable = function SidebarOptionsLable({
+   children,
+   ...restProps
+}) {
+   return <OptionsLable {...restProps}>{children}</OptionsLable>;
+};
 
+// LOGOUT
 Sidebar.LogoutSection = function SidebarLogoutSection({
    children,
    ...restProps
 }) {
    return <LogoutSection {...restProps}>{children}</LogoutSection>;
+};
+Sidebar.LogoutText = function SidebarLogoutText({ children, ...restProps }) {
+   return <LogoutText {...restProps}>{children}</LogoutText>;
 };
