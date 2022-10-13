@@ -16,4 +16,9 @@ export { default as TravelledRoutesContainer } from "./TravelledRoutesContainer"
 export { default as FooterContainer } from "./FooterContainer";
 
 export { default as SidebarContainer } from "./SidebarContainer";
+export { default as PictureBarContainer } from "./PictureBarContainer";
+export { default as TopNavDashboardContainer } from "./TopNavDashboardContainer";
 export { default as DashboardContainer } from "./DashboardContainer";
+
+export { default as ReservationSelectionContainer } from "./ReservationSelectionContainer";
+export { default as ReservationOverviewContainer } from "./ReservationOverviewContainer";

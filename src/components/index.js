@@ -25,4 +25,9 @@ export { default as About } from "./AboutUsSection";
 export { default as Testimonial } from "./Testimonial";
 
 export { default as Sidebar } from "./SideBar";
+export { default as PictureBar } from "./PictureBar";
 export { default as Dashboard } from "./Dashboard";
+export { default as TopNavDashboard } from "./TopNavDashboard";
+
+export { default as ReservationSelection } from "./ReservationSelection";
+export { default as ReservationOverview } from "./ReservationOverview";

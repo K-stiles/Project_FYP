@@ -1,15 +1,18 @@
-import { useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./Layout";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import CUSTOM_DEFAULT_THEME, { CUSTOM_DARK_THEME } from "./Constants/theme";
-
+import Layout from "./routes/Layout";
+import DashboardLayout from "./routes/DashboardLayout";
 import {
    AboutPage,
    ConfirmSignupPage,
    HomePage,
    LoginPage,
+   ReservationOverviewPage,
+   ReservationPaymentPage,
+   ReservationSelectionPage,
+   ReservationSuccessPage,
    SignupPage,
    SuccessSignupConfirmPage,
    UserDashboardPage,
@@ -47,17 +50,45 @@ export const router = createBrowserRouter([
       element: <SuccessSignupConfirmPage />,
    },
    {
+      path: "/",
+      element: <Layout />,
+      children: [
+         {
+            index: true,
+            element: <HomePage />,
+         },
+      ],
+   },
+   {
       path: "/dashboard",
-      element: <UserDashboardPage />,
+      element: <DashboardLayout />,
+      children: [
+         {
+            index: true,
+            element: <UserDashboardPage />,
+         },
+         {
+            path: "/dashboard/reservation-selection",
+            element: <ReservationSelectionPage />,
+         },
+         {
+            path: "/dashboard/reservation-overview",
+            element: <ReservationOverviewPage />,
+         },
+      ],
+   },
+   {
+      path: "/dashboard/reservation-payment",
+      element: <ReservationPaymentPage />,
+   },
+   {
+      path: "/dashboard/reservation-success",
+      element: <ReservationSuccessPage />,
    },
 ]);
 
 function App() {
-   const [isDarkTheme, setIsDarkTheme] = useState(false);
-   const theme = isDarkTheme ? CUSTOM_DARK_THEME : CUSTOM_DEFAULT_THEME;
-
-   //usage
-   /* background: ${({ theme }) => theme.secondary}; */
+   const { theme } = useSelector((state) => state.theme);
 
    return (
       <>

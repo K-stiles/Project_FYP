@@ -7,6 +7,9 @@ import SideBarDashBoardData from "./SideBarDashBoardData.json";
 import SideBarPreferenceData from "./SideBarPreferenceData.json";
 import dashboardTopnav from "./dashboardTopnav.json";
 
+import tableHeaderData from "./tableHeaderData.json";
+import tableRowData from "./tableRowData.json";
+
 import userImages from "./userImages.json";
 
 import LiveActivityData from "./LiveActivityData.json";
@@ -23,6 +26,8 @@ export {
    SideBarPreferenceData,
    userImages,
    dashboardTopnav,
+   tableHeaderData,
+   tableRowData,
    LiveActivityData,
    pricingCardData,
    recentBusReservations,

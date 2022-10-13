@@ -1,42 +1,61 @@
 [
    {
+      "id": "LiveActivityData----1234hwbds",
       "label": "Kumasi Reservations",
       "number": "10",
       "percentage": "20",
-      "icon": "icon path",
+      "icon": "/images/GREEN-INDI.png",
+      "location": "/images/kumasi-users-icon.png",
       "primary": "#0DA06A",
       "secondary": "#E9FAEB",
-      "graph": true,
-      "direction": "up"
+      "graphImage": "/images/kumasi-graph.png",
+      "graphAlt": "kumasi graph",
+      "direction": "up",
+      "percentageColor": "#0DA06A"
    },
    {
+      "id": "LiveActivityData----hbwdsank4hwbds",
       "label": "Accra Reservations",
       "number": "2",
       "percentage": "5",
-      "icon": "icon path",
+      "icon": "/images/RED-INDI.png",
+      "location": "/images/Accra-users-icon.png",
       "primary": "#874CD1",
       "secondary": "#EDE9FA",
+      "graphImage": "/images/accra-graph.png",
+      "graphAlt": "accra graph",
       "graph": true,
-      "direction": "down"
+      "direction": "down",
+      "percentageColor": "#F34A7C"
    },
    {
+      "id": "LiveActivityData----ebwsjknakl;kw1234hwbds",
       "label": "Brong Ahafo Reservations",
       "number": "10",
       "percentage": "5",
-      "icon": "icon path",
+      "icon": "/images/GREEN-INDI.png",
+      "location": "/images/brongAhafo-users-icon.png",
       "primary": "#FB7E15",
       "secondary": "#FFF5EB",
+      "graphImage": "/images/ahafo-graph.png",
+      "graphAlt": "ahafo graph",
       "graph": true,
-      "direction": "up"
+      "direction": "up",
+      "percentageColor": "#0DA06A"
    },
    {
+      "id": "LiveActivityData----57890981234hwbds",
       "label": "Takorade Reservations",
       "number": "22",
       "percentage": "15",
-      "icon": "icon path",
+      "icon": "/images/GREEN-INDI.png",
+      "location": "/images/takorade-users-icon.png",
       "primary": "#4779CC",
       "secondary": "#EBF3FF",
+      "graphImage": "/images/tadee-graph.png",
+      "graphAlt": "tadee graph",
       "graph": true,
-      "direction": "up"
+      "direction": "up",
+      "percentageColor": "#0DA06A"
    }
 ]

@@ -5,4 +5,9 @@ export { default as SuccessSignupConfirmPage } from "./Auth/SuccessSignupConfirm
 
 export { default as HomePage } from "./Home/HomePage";
 export { default as AboutPage } from "./About";
+
 export { default as UserDashboardPage } from "./UserDashboardPage";
+export { default as ReservationSelectionPage } from "./ReservationSelectionPage";
+export { default as ReservationOverviewPage } from "./ReservationOverviewPage";
+export { default as ReservationPaymentPage } from "./ReservationPaymentPage";
+export { default as ReservationSuccessPage } from "./ReservationSuccessPage";

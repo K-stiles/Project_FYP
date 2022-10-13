@@ -1,13 +1,13 @@
 import React from "react";
-import { DashboardContainer, SidebarContainer } from "../../container";
+import { Outlet } from "react-router-dom";
+import PictureBar from "../../components/PictureBar";
+import { DashboardContainer } from "../../container";
 import { DashboardWrapper } from "./Dashboard.styled";
 
 export default function UserDashboardPage() {
    return (
-      <DashboardWrapper>
-         <SidebarContainer />
-
+      <>
          <DashboardContainer />
-      </DashboardWrapper>
+      </>
    );
 }
