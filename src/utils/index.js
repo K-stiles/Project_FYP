@@ -16,6 +16,9 @@ import LiveActivityData from "./LiveActivityData.json";
 import recentBusReservations from "./recentBusReservations.json";
 import customerImages from "./customerImages.json";
 
+import overviewData from "./overviewData.json";
+import profileSideBarRoute from "./profileSideBarRoute.json";
+
 import validateInput from "./inputValidate";
 
 export {
@@ -32,5 +35,7 @@ export {
    pricingCardData,
    recentBusReservations,
    sponsorData,
+   overviewData,
+   profileSideBarRoute,
    validateInput,
 };

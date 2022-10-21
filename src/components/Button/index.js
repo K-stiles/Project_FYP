@@ -27,7 +27,7 @@ const PrimarySolidBtn = styled(StyledButton)`
    padding: ${({ padding }) => padding};
    margin: ${({ margin }) => margin};
    font-size: ${({ fontSize }) => fontSize};
-   background-color: ${({ bgColor }) => bgColor};
+   background-color: ${({ bg }) => bg};
 `;
 export const PrimaryOutlineBtn = styled(StyledButton)`
    background-color: transparent;

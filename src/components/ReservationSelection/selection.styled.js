@@ -12,20 +12,49 @@ export const Section = styled.section`
    width: calc(100% - 340px);
    height: 100%;
    transition: all 0.5s ease;
-   /* background: ${({ theme }) => "#fcba03"}; */
+   background: ${({ theme }) => theme.background};
 `;
 
 // TODO: ----------------- AREA ONE -------------------
 export const AreaOne = styled.div`
    padding: 20px;
 `;
+export const GoBackBtn = styled(Link)`
+   text-decoration: none;
+   color: inherit;
 
+   padding: 0.8rem 1.5rem;
+   border-radius: 30px;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 21px;
+
+   align-self: flex-start;
+
+   cursor: pointer;
+   color: ${({ theme }) => theme.primary};
+   background: ${({ theme }) => "#E4ECFA"};
+   transition: transform 0.3s ease 0s;
+
+   &:hover {
+      transform: scale(1.02);
+   }
+`;
+
+export const TopSection = styled.div`
+   display: flex;
+   flex-direction: column;
+
+   /* background: red; */
+`;
 export const MainHeaderSection = styled.div`
    display: flex;
    align-items: center;
    justify-content: space-between;
 
-   margin-bottom: 10px;
+   margin: 10px 0;
+   /* background: #000; */
 `;
 export const HeaderSection = styled.div`
    display: flex;
@@ -80,6 +109,17 @@ export const ImageLayerText = styled.p`
    line-height: 20px;
    text-align: center;
    color: ${({ theme }) => theme.primary};
+`;
+export const UserImageWrapper = styled.div`
+   width: 30px;
+   height: 30px;
+   border-radius: 30px;
+   object-fit: cover;
+`;
+export const UserProfile = styled.img`
+   width: 100%;
+   height: 100%;
+   border-radius: 40px;
 `;
 
 export const InputWrapper = styled.div`
@@ -235,18 +275,6 @@ export const BiIconWrapper = styled.div`
 export const BiIcon = styled.img`
    width: 100%;
    transform: rotate(-50deg);
-`;
-
-export const UserImageWrapper = styled.div`
-   width: 30px;
-   height: 30px;
-   border-radius: 30px;
-   object-fit: cover;
-`;
-export const UserProfile = styled.img`
-   width: 100%;
-   height: 100%;
-   border-radius: 40px;
 `;
 
 export const AreaTwo = styled.div`

@@ -14,7 +14,7 @@ export default function PricingContainer() {
 
         <div>
           <Pricing.Container>
-            <Pricing.Card bgColor={"transparent"} cardPadding="0px 40px 20px">
+            <Pricing.Card cardColor={"transparent"} cardPadding="0px 40px 20px">
               <Pricing.SideHeader>Pricing Table</Pricing.SideHeader>
               <Pricing.SideDescription>
                 This is our Trip Pricing table any trip you want to make across

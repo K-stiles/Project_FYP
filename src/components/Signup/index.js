@@ -8,7 +8,6 @@ import {
    FacebookSocialIcon,
    Form,
    FormWrapper,
-   GoogleSocialIcon,
    SocialIconWrapper,
    Holder,
    Image,

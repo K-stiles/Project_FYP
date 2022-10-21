@@ -49,5 +49,6 @@ export const CUSTOM_DARK_THEME = {
 // blue: "#087FEC",
 // yellow: "#ffc400",
 // violet: "#b90eae",
+// "#fcba03"
 
 export default CUSTOM_DEFAULT_THEME;

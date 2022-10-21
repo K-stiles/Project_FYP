@@ -1,5 +1,5 @@
-import React from "react";
-import { Sidebar } from "../components";
+import React, { useState } from "react";
+import { Counter, RadioLabel, Sidebar } from "../components";
 import { SideBarDashBoardData, SideBarPreferenceData } from "../utils";
 
 const Img = {
@@ -16,6 +16,35 @@ const Img = {
 };
 
 export default function SidebarContainer() {
+   const [reservationType, setReservationType] = useState(null);
+   const [busType, setBusType] = useState(null);
+   const [paymentMethod, setPaymentMethod] = useState(null);
+
+   const [groupNumber, setGroupNumber] = useState(0);
+   const [adults, setAdults] = useState(0);
+   const [children, setChildren] = useState(0);
+   const [seniors, setSeniors] = useState(0);
+
+   const getReservationType = (e) => setReservationType(e.target.value);
+   const getBusType = (e) => setBusType(e.target.value);
+   const getPaymentMethod = (e) => setPaymentMethod(e.target.value);
+
+   const decreaseGroupNumber = () => setGroupNumber((gNumb) => gNumb - 1);
+   const increaseGroupNumber = () => setGroupNumber((gNumb) => gNumb + 1);
+
+   const decreaseAdults = () => setAdults((adults) => adults - 1);
+   const increaseAdults = () => setAdults((adults) => adults + 1);
+
+   const decreaseChildren = () => setChildren((children) => children - 1);
+   const increaseChildren = () => setChildren((children) => children + 1);
+
+   const decreaseSeniors = () => setSeniors((seniors) => seniors - 1);
+   const increaseSeniors = () => setSeniors((seniors) => seniors + 1);
+
+   // console.log("ReservationType,: ", reservationType);
+   // console.log("BusType,: ", busType);
+   // console.log("PaymentMethod,: ", paymentMethod);
+
    return (
       <Sidebar>
          <Sidebar.SideBar>
@@ -29,7 +58,7 @@ export default function SidebarContainer() {
                </Sidebar.HeaderIconWapper>
             </Sidebar.HeaderSection>
 
-            <Sidebar.UserSection to="/">
+            <Sidebar.UserSection to="/dashboard/profile">
                <Sidebar.UserImage>
                   <Sidebar.Image src={Img.profile} alt={Img.profileAlt} />
                   <Sidebar.NotifyNumber>
@@ -83,9 +112,81 @@ export default function SidebarContainer() {
                                  <Sidebar.SubMenuOptions
                                     key={`item--${item.option}`}
                                  >
-                                    <Sidebar.OptionsLable>
-                                       {item.option}
-                                    </Sidebar.OptionsLable>
+                                    {item.radioLabel === "Reservation" && (
+                                       <Sidebar.OptionsLable>
+                                          <RadioLabel
+                                             radioId={item.radioId}
+                                             radioLabel={item.radioLabel}
+                                             option={item.option}
+                                             value={item.value}
+                                             onChange={getReservationType}
+                                          />
+                                       </Sidebar.OptionsLable>
+                                    )}
+                                    {item.radioLabel === "BusType" && (
+                                       <Sidebar.OptionsLable>
+                                          <RadioLabel
+                                             radioId={item.radioId}
+                                             radioLabel={item.radioLabel}
+                                             option={item.option}
+                                             value={item.value}
+                                             onChange={getBusType}
+                                          />
+                                       </Sidebar.OptionsLable>
+                                    )}
+
+                                    {item.Counter === "groupNumber" && (
+                                       <Counter
+                                          label={item.option}
+                                          number={groupNumber}
+                                          decrease={decreaseGroupNumber}
+                                          increase={increaseGroupNumber}
+                                          disabled={
+                                             groupNumber <= 0 ? true : false
+                                          }
+                                       />
+                                    )}
+                                    {item.option === "Adults" && (
+                                       <Counter
+                                          label={item.option}
+                                          number={adults}
+                                          decrease={decreaseAdults}
+                                          increase={increaseAdults}
+                                          disabled={adults <= 0 ? true : false}
+                                       />
+                                    )}
+                                    {item.option === "Children" && (
+                                       <Counter
+                                          label={item.option}
+                                          number={children}
+                                          decrease={decreaseChildren}
+                                          increase={increaseChildren}
+                                          disabled={
+                                             children <= 0 ? true : false
+                                          }
+                                       />
+                                    )}
+                                    {item.option === "Seniors" && (
+                                       <Counter
+                                          label={item.option}
+                                          number={seniors}
+                                          decrease={decreaseSeniors}
+                                          increase={increaseSeniors}
+                                          disabled={seniors <= 0 ? true : false}
+                                       />
+                                    )}
+
+                                    {item.radioLabel === "PaymentMethod" && (
+                                       <Sidebar.OptionsLable>
+                                          <RadioLabel
+                                             radioId={item.radioId}
+                                             radioLabel={item.radioLabel}
+                                             option={item.option}
+                                             value={item.value}
+                                             onChange={getPaymentMethod}
+                                          />
+                                       </Sidebar.OptionsLable>
+                                    )}
                                  </Sidebar.SubMenuOptions>
                               ))}
                         </Sidebar.SubMenuItem>

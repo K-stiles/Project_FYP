@@ -8,16 +8,25 @@
       "subLabel": [
          {
             "option": "Single",
+            "value": "Single",
+            "radioId": "SingleReservation",
+            "radioLabel": "Reservation",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "Group",
+            "value": "Group",
+            "radioId": "GroupReservation",
+            "radioLabel": "Reservation",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "Another Person",
+            "value": "Another Person",
+            "radioId": "AnotherReservation",
+            "radioLabel": "Reservation",
             "iconAlt": "",
             "icon": "icon"
          }
@@ -32,26 +41,41 @@
       "subLabel": [
          {
             "option": "Standard",
+            "value": "Standard",
+            "radioId": "StandardReservation",
+            "radioLabel": "BusType",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "Single Seat",
+            "value": "Single Seat",
+            "radioId": "SingleSeatReservation",
+            "radioLabel": "BusType",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "Double Seat",
+            "value": "Double Seat",
+            "radioId": "DoubleSeatReservation",
+            "radioLabel": "BusType",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "VIP",
+            "value": "VIP",
+            "radioId": "Vip Reservation",
+            "radioLabel": "BusType",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "Luxury Executive",
+            "value": "Luxury Executive",
+            "radioId": "LuxuryExecutiveReservation",
+            "radioLabel": "BusType",
             "iconAlt": "",
             "icon": "icon"
          }
@@ -65,9 +89,8 @@
       "number": "",
       "subLabel": [
          {
-            "option": "Counter component",
-            "iconAlt": "",
-            "icon": "icon"
+            "option": "Number",
+            "Counter": "groupNumber"
          }
       ]
    },
@@ -79,19 +102,16 @@
       "number": "",
       "subLabel": [
          {
-            "option": "Counter component 1",
-            "iconAlt": "",
-            "icon": "icon"
+            "option": "Adults",
+            "Counter": "groupMembers"
          },
          {
-            "option": "Counter component 2",
-            "iconAlt": "",
-            "icon": "icon"
+            "option": "Children",
+            "Counter": "groupMembers"
          },
          {
-            "option": "Counter component 3",
-            "iconAlt": "",
-            "icon": "icon"
+            "option": "Seniors",
+            "Counter": "groupMembers"
          }
       ]
    },
@@ -103,27 +123,42 @@
       "number": "",
       "subLabel": [
          {
-            "option": "SMobile money",
+            "option": "Mobile money",
+            "value": "Mobile money",
+            "radioId": "MobileMoney",
+            "radioLabel": "PaymentMethod",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "Visa Card",
+            "value": "Visa Card",
+            "radioId": "VisaCard",
+            "radioLabel": "PaymentMethod",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "PayPal",
+            "value": "PayPal",
+            "radioId": "PayPal",
+            "radioLabel": "PaymentMethod",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "Master Card",
+            "value": "Master Card",
+            "radioId": "MasterCard",
+            "radioLabel": "PaymentMethod",
             "iconAlt": "",
             "icon": "icon"
          },
          {
             "option": "Others",
+            "value": "Others",
+            "radioId": "OtherPaymentMethod",
+            "radioLabel": "PaymentMethod",
             "iconAlt": "",
             "icon": "icon"
          }

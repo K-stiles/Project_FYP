@@ -43,7 +43,7 @@ export default function TopNavDashboardContainer() {
                      alt={"bell icon"}
                   />
                </TopNavDashboard.BellWrapper>
-               <TopNavDashboard.ProfileWrapper>
+               <TopNavDashboard.ProfileWrapper to="/dashboard/profile">
                   <TopNavDashboard.ProfileImage
                      src={"/images/sideBarImage.png"}
                      alt={"profile image"}

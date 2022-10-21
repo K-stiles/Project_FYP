@@ -6,7 +6,7 @@ export const PictureBarWrapper = styled.div`
    right: 0;
    height: 100vh;
    width: 60px;
-   background-color: transparent;
+   background-color: ${({ theme }) => theme.background};
    /* z-index: 100; */
 `;
 export const PictureBarSection = styled.div`

@@ -7,46 +7,52 @@ export default function ReservationSelectionContainer() {
       <ReservationSelection>
          {/* //TODO: ------------- AREA TWO --------------- */}
          <ReservationSelection.AreaOne>
-            <ReservationSelection.MainHeaderSection>
-               <ReservationSelection.HeaderSection>
-                  <ReservationSelection.MainHeader>
-                     Bus Reservation
-                  </ReservationSelection.MainHeader>
-                  <ReservationSelection.EditIcon
-                     src={"/images/edit-icon.png"}
-                     alt={"bi-directional-arrow-icon image"}
-                  />
-               </ReservationSelection.HeaderSection>
+            <ReservationSelection.TopSection>
+               <ReservationSelection.GoBackBtn to="">
+                  Go Back
+               </ReservationSelection.GoBackBtn>
 
-               <ReservationSelection.TopImages>
-                  {userImages?.map((item, index) => {
-                     if (index <= 2)
-                        return (
-                           <ReservationSelection.TopImageWrapper
-                              key={`userImages---${item.id}`}
-                              index={index}
-                           >
-                              <ReservationSelection.UserProfile
-                                 src={"/images/sideBarImage.png"}
-                                 alt={"close icon"}
-                              />
-                           </ReservationSelection.TopImageWrapper>
-                        );
+               <ReservationSelection.MainHeaderSection>
+                  <ReservationSelection.HeaderSection>
+                     <ReservationSelection.MainHeader>
+                        Bus Reservation
+                     </ReservationSelection.MainHeader>
+                     <ReservationSelection.EditIcon
+                        src={"/images/edit-icon.png"}
+                        alt={"bi-directional-arrow-icon image"}
+                     />
+                  </ReservationSelection.HeaderSection>
 
-                     if (index === 3)
-                        return (
-                           <ReservationSelection.ImageLayer
-                              key={`userImages---${item.id}`}
-                              index={index}
-                           >
-                              <ReservationSelection.ImageLayerText>
-                                 +{userImages.length - 3}
-                              </ReservationSelection.ImageLayerText>
-                           </ReservationSelection.ImageLayer>
-                        );
-                  })}
-               </ReservationSelection.TopImages>
-            </ReservationSelection.MainHeaderSection>
+                  <ReservationSelection.TopImages>
+                     {userImages?.map((item, index) => {
+                        if (index <= 2)
+                           return (
+                              <ReservationSelection.TopImageWrapper
+                                 key={`userImages---${item.id}`}
+                                 index={index}
+                              >
+                                 <ReservationSelection.UserProfile
+                                    src={"/images/sideBarImage.png"}
+                                    alt={"close icon"}
+                                 />
+                              </ReservationSelection.TopImageWrapper>
+                           );
+
+                        if (index === 3)
+                           return (
+                              <ReservationSelection.ImageLayer
+                                 key={`userImages---${item.id}`}
+                                 index={index}
+                              >
+                                 <ReservationSelection.ImageLayerText>
+                                    +{userImages.length - 3}
+                                 </ReservationSelection.ImageLayerText>
+                              </ReservationSelection.ImageLayer>
+                           );
+                     })}
+                  </ReservationSelection.TopImages>
+               </ReservationSelection.MainHeaderSection>
+            </ReservationSelection.TopSection>
             <ReservationSelection.TopWrapper>
                <ReservationSelection.InputWrapper>
                   <ReservationSelection.InputOne>

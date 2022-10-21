@@ -11,3 +11,7 @@ export { default as ReservationSelectionPage } from "./ReservationSelectionPage"
 export { default as ReservationOverviewPage } from "./ReservationOverviewPage";
 export { default as ReservationPaymentPage } from "./ReservationPaymentPage";
 export { default as ReservationSuccessPage } from "./ReservationSuccessPage";
+
+export { default as AccountSettingsPage } from "./AccountSettings";
+export { default as TutorialsPage } from "./Tutorial";
+export { default as SubscriptionsPage } from "./Subscriptions";

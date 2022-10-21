@@ -1,0 +1,22 @@
+[
+   {
+      "id": "profileSideBarRoute----5t5fgc131hvashjcbzxj",
+      "route": "/dashboard",
+      "name": "Dashboard"
+   },
+   {
+      "id": "profileSideBarRoute----131hvashjcbzxj",
+      "route": "/dashboard/profile",
+      "name": "Account Settings"
+   },
+   {
+      "id": "profileSideBarRoute----2435hvashjcbzxj",
+      "route": "/dashboard/profile/subscriptions",
+      "name": "Subscriptions"
+   },
+   {
+      "id": "profileSideBarRoute----hvashjcbzxj",
+      "route": "/dashboard/profile/tutorials",
+      "name": "Tutorials"
+   }
+]

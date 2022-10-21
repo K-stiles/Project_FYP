@@ -43,6 +43,8 @@ import {
    DurationBus,
    UpdateBtn,
    TopWrapper,
+   GoBackBtn,
+   TopSection,
 } from "./selection.styled";
 
 export default function ReservationSelection({ children, ...restProps }) {
@@ -58,6 +60,18 @@ ReservationSelection.AreaOne = function ReservationSelectionAreaOne({
    ...restProps
 }) {
    return <AreaOne {...restProps}>{children}</AreaOne>;
+};
+ReservationSelection.TopSection = function ReservationSelectionTopSection({
+   children,
+   ...restProps
+}) {
+   return <TopSection {...restProps}>{children}</TopSection>;
+};
+ReservationSelection.GoBackBtn = function ReservationSelectionGoBackBtn({
+   children,
+   ...restProps
+}) {
+   return <GoBackBtn {...restProps}>{children}</GoBackBtn>;
 };
 ReservationSelection.InputWrapper = function ReservationSelectionInputWrapper({
    children,
@@ -75,6 +89,11 @@ ReservationSelection.TopImageWrapper =
    function ReservationSelectionTopImageWrapper({ children, ...restProps }) {
       return <TopImageWrapper {...restProps}>{children}</TopImageWrapper>;
    };
+ReservationSelection.UserProfile = function ReservationSelectionUserProfile({
+   ...restProps
+}) {
+   return <UserProfile {...restProps} />;
+};
 ReservationSelection.ImageLayer = function ReservationSelectionImageLayer({
    children,
    ...restProps
@@ -89,11 +108,6 @@ ReservationSelection.UserImageWrapper =
    function ReservationSelectionUserImageWrapper({ children, ...restProps }) {
       return <UserImageWrapper {...restProps}>{children}</UserImageWrapper>;
    };
-ReservationSelection.UserProfile = function ReservationSelectionUserProfile({
-   ...restProps
-}) {
-   return <UserProfile {...restProps} />;
-};
 
 ReservationSelection.InputOne = function ReservationSelectionInputOne({
    children,
@@ -191,12 +205,7 @@ ReservationSelection.MainHeader = function ReservationSelectionMainHeader({
 }) {
    return <MainHeader {...restProps}>{children}</MainHeader>;
 };
-ReservationSelection.TopWrapper = function ReservationSelectionTopWrapper({
-   children,
-   ...restProps
-}) {
-   return <TopWrapper {...restProps}>{children}</TopWrapper>;
-};
+
 ReservationSelection.HeaderSection =
    function ReservationSelectionHeaderSection({ children, ...restProps }) {
       return <HeaderSection {...restProps}>{children}</HeaderSection>;
@@ -206,7 +215,12 @@ ReservationSelection.EditIcon = function ReservationSelectionEditIcon({
 }) {
    return <EditIcon {...restProps} />;
 };
-
+ReservationSelection.TopWrapper = function ReservationSelectionTopWrapper({
+   children,
+   ...restProps
+}) {
+   return <TopWrapper {...restProps}>{children}</TopWrapper>;
+};
 // -----------------------------------
 // -----------------------------------
 // TODO: AREA ONE

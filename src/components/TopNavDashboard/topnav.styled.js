@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Section = styled.div`
@@ -103,7 +103,10 @@ export const LinkText = styled.h3`
       color: ${({ theme }) => theme.primary};
    }
 `;
-export const ProfileWrapper = styled.div`
+export const ProfileWrapper = styled(Link)`
+   color: inherit;
+   text-decoration: none;
+
    width: 35px;
    height: 35px;
    object-fit: cover;
