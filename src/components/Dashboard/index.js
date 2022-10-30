@@ -5,11 +5,6 @@ import {
    AreaThree,
    AreaThreeTitle,
    AreaTwo,
-   ArrowIcon,
-   ArrowLine,
-   ArrowWrapper,
-   BellIcon,
-   BellWrapper,
    BiIcon,
    BiIconWrapper,
    Bottomcontent,
@@ -20,8 +15,6 @@ import {
    Cards,
    CardTitle,
    CentralRegion,
-   CloseIcon,
-   CloseWrapper,
    Container,
    DestinationInput,
    DestinationInputWrapper,
@@ -35,7 +28,6 @@ import {
    FooterNumber,
    FooterNumberIcon,
    FooterNumberIconWrapper,
-   FooterText,
    FooterTextWrapper,
    Graph,
    GraphText,
@@ -51,28 +43,17 @@ import {
    InputTwo,
    InputWrapper,
    LeftArrow,
-   Line,
-   LinkText,
    LiveSection,
    MainHeader,
    MainHeaderSection,
-   NotifySection,
    OrigninInput,
    OrigninInputWrapper,
    OrigninLabel,
-   PictureBar,
+   DateLabel,
    ProceedBtn,
-   ProfileImage,
-   ProfileWrapper,
    RightArrow,
-   RouteLink,
-   RouteLinks,
    RowItemWrapper,
    RowText,
-   SearchIcon,
-   SearchIconWrapper,
-   SearchInput,
-   SearchWrapper,
    Section,
    SmallText,
    SubHeader,
@@ -86,10 +67,12 @@ import {
    Topcontent,
    TopImages,
    TopImageWrapper,
-   TopRegion,
    UserProfile,
    UserImageWrapper,
-   UsersContainer,
+   DateWrapper,
+   Passengers,
+   DateSelector,
+   Form,
 } from "./dashboard.styled";
 
 export default function Dashboard({ children, ...restProps }) {
@@ -400,6 +383,27 @@ Dashboard.InputLabel = function DashboardInputLabel({
 }) {
    return <InputLabel {...restProps}>{children}</InputLabel>;
 };
+Dashboard.DateWrapper = function DashboardDateWrapper({
+   children,
+   ...restProps
+}) {
+   return <DateWrapper {...restProps}>{children}</DateWrapper>;
+};
+Dashboard.DateLabel = function DashboardDateLabel({ children, ...restProps }) {
+   return <DateLabel {...restProps}>{children}</DateLabel>;
+};
+// Dashboard.DateSelector = function DashboardDateSelector({
+//    children,
+//    ...restProps
+// }) {
+//    return <DateSelector {...restProps}>{children}</DateSelector>;
+// };
+Dashboard.Passengers = function DashboardPassengers({
+   children,
+   ...restProps
+}) {
+   return <Passengers {...restProps}>{children}</Passengers>;
+};
 
 Dashboard.InputThree = function DashboardInputThree({
    children,
@@ -542,6 +546,9 @@ Dashboard.RightArrow = function DashboardRightArrow({ ...restProps }) {
 // -----------------------------------
 // TODO: AREA FOUR
 // -----------------------------------
+Dashboard.Form = function DashboardForm({ children, ...restProps }) {
+   return <Form {...restProps}>{children}</Form>;
+};
 Dashboard.AreaFour = function DashboardAreaFour({ children, ...restProps }) {
    return <AreaFour {...restProps}>{children}</AreaFour>;
 };

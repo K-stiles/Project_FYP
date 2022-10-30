@@ -5,7 +5,6 @@ import {
    BusImage,
    CheckboxLabel,
    FacebookSocialIcon,
-   Form,
    FormWrapper,
    SocialIconWrapper,
    Holder,
@@ -29,6 +28,7 @@ import {
    Container,
    SuccessButton,
    BtnLink,
+   Div,
 } from "./successSignupConfirm.styled";
 
 export default function SuccessConfirmSignup({ children, ...restProps }) {
@@ -51,7 +51,7 @@ SuccessConfirmSignup.Form = function SuccessConfirmSignupForm({
    children,
    ...restProps
 }) {
-   return <Form {...restProps}>{children}</Form>;
+   return <Div {...restProps}>{children}</Div>;
 };
 SuccessConfirmSignup.Left = function SuccessConfirmSignupLeft({
    children,

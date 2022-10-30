@@ -47,4 +47,5 @@ export { default as CentralProfileHeader } from "./CentralProfileHeader";
 
 export { default as Loader } from "./Loader";
 export { default as RadioLabel } from "./RadioLabel";
+export { default as CheckboxLabel } from "./CheckboxLabel";
 export { default as Counter } from "./Counter";

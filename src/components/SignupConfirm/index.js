@@ -29,6 +29,8 @@ import {
    FBSocialIconWrapper,
    Container,
    BtnLink,
+   ErrorMsg,
+   LabelRow,
 } from "./confirmSignup.styled";
 
 export default function ConfirmSignup({ children, ...restProps }) {
@@ -91,6 +93,18 @@ ConfirmSignup.InputLabel = function ConfirmSignupInputLabel({
    ...restProps
 }) {
    return <InputLabel {...restProps}>{children}</InputLabel>;
+};
+ConfirmSignup.ErrorMsg = function ConfirmSignupErrorMsg({
+   children,
+   ...restProps
+}) {
+   return <ErrorMsg {...restProps}>{children}</ErrorMsg>;
+};
+ConfirmSignup.LabelRow = function ConfirmSignupLabelRow({
+   children,
+   ...restProps
+}) {
+   return <LabelRow {...restProps}>{children}</LabelRow>;
 };
 ConfirmSignup.SocialText = function ConfirmSignupSocialText({
    children,

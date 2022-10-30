@@ -29,6 +29,8 @@ import {
    TopRow,
    FBSocialIconWrapper,
    BtnLink,
+   ErrorMsg,
+   LabelRow,
 } from "./signup.styled";
 
 export default function Signup({ children, ...restProps }) {
@@ -62,6 +64,9 @@ Signup.InputWrapper = function SignupInputWrapper({ children, ...restProps }) {
 Signup.Row = function SignupRow({ children, ...restProps }) {
    return <Row {...restProps}>{children}</Row>;
 };
+Signup.LabelRow = function SignupLabelRow({ children, ...restProps }) {
+   return <LabelRow {...restProps}>{children}</LabelRow>;
+};
 Signup.TopRow = function SignupTopRow({ children, ...restProps }) {
    return <TopRow {...restProps}>{children}</TopRow>;
 };
@@ -76,6 +81,9 @@ Signup.InputLabel = function SignupInputLabel({ children, ...restProps }) {
 };
 Signup.SocialText = function SignupSocialText({ children, ...restProps }) {
    return <SocialText {...restProps}>{children}</SocialText>;
+};
+Signup.ErrorMsg = function SignupErrorMsg({ children, ...restProps }) {
+   return <ErrorMsg {...restProps}>{children}</ErrorMsg>;
 };
 Signup.CheckboxLabel = function SignupCheckboxLabel({
    children,

@@ -45,6 +45,11 @@ import {
    TopWrapper,
    GoBackBtn,
    TopSection,
+   DateWrapper,
+   DateLabel,
+   Passengers,
+   Sorry,
+   SorryText,
 } from "./selection.styled";
 
 export default function ReservationSelection({ children, ...restProps }) {
@@ -174,6 +179,24 @@ ReservationSelection.InputThree = function ReservationSelectionInputThree({
 }) {
    return <InputThree {...restProps}>{children}</InputThree>;
 };
+ReservationSelection.DateWrapper = function ReservationSelectionDateWrapper({
+   children,
+   ...restProps
+}) {
+   return <DateWrapper {...restProps}>{children}</DateWrapper>;
+};
+ReservationSelection.DateLabel = function ReservationSelectionDateLabel({
+   children,
+   ...restProps
+}) {
+   return <DateLabel {...restProps}>{children}</DateLabel>;
+};
+ReservationSelection.Passengers = function ReservationSelectionPassengers({
+   children,
+   ...restProps
+}) {
+   return <Passengers {...restProps}>{children}</Passengers>;
+};
 ReservationSelection.InputFour = function ReservationSelectionInputFour({
    children,
    ...restProps
@@ -293,6 +316,18 @@ ReservationSelection.Price = function ReservationSelectionPrice({
    ...restProps
 }) {
    return <Price {...restProps}>{children}</Price>;
+};
+ReservationSelection.Sorry = function ReservationSelectionSorry({
+   children,
+   ...restProps
+}) {
+   return <Sorry {...restProps}>{children}</Sorry>;
+};
+ReservationSelection.SorryText = function ReservationSelectionSorryText({
+   children,
+   ...restProps
+}) {
+   return <SorryText {...restProps}>{children}</SorryText>;
 };
 
 ReservationSelection.CardBtn = function ReservationSelectionCardBtn({

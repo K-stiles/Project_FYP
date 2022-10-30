@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const Section = styled.section`
    width: 260px;
@@ -27,6 +27,8 @@ export const LabelRow = styled(Link)`
 
    margin-bottom: 30px;
 `;
+export const LogOut = styled.p``;
+
 export const Label = styled.p`
    font-style: normal;
    font-weight: 500;
@@ -36,15 +38,18 @@ export const Label = styled.p`
    align-items: center;
    text-transform: uppercase;
 
-   color: ${({ theme }) => theme.primay};
+   color: ${({ theme }) => theme.text};
+   &:hover {
+      color: ${({ theme }) => theme.primary};
+   }
 `;
 export const LabelIcon = styled.img`
    width: 25px;
    object-fit: contain;
 `;
 export const Labels = styled.div``;
+
 export const LogoutRow = styled.button`
-   background-color: ${({ theme }) => theme.transparent};
    outline: none;
    border: none;
    padding: 0.5rem;
@@ -55,4 +60,5 @@ export const LogoutRow = styled.button`
    cursor: pointer;
 
    margin-top: auto;
+   background-color: ${({ theme }) => theme.card};
 `;

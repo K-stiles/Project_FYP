@@ -5,6 +5,7 @@ import {
    LabelIcon,
    LabelRow,
    Labels,
+   LogOut,
    LogoutRow,
    Section,
 } from "./profileSidebar.styled";
@@ -29,6 +30,12 @@ ProfileSidebar.Label = function ProfileSidebarLabel({
    ...restProps
 }) {
    return <Label {...restProps}>{children}</Label>;
+};
+ProfileSidebar.LogOut = function ProfileSidebarLogOut({
+   children,
+   ...restProps
+}) {
+   return <LogOut {...restProps}>{children}</LogOut>;
 };
 ProfileSidebar.Labels = function ProfileSidebarLabels({
    children,

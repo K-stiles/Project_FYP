@@ -1,9 +1,11 @@
 import React from "react";
 import {
   Container,
+  H2,
   Image,
   ImageContainer,
-  ImageWrapper,
+  Location,
+  Overlay,
   Section,
   Title,
   Wrapper,
@@ -41,4 +43,19 @@ TravelledRoutes.ImageContainer = function TravelledRoutesImageContainer({
 
 TravelledRoutes.Image = function TravelledRoutesImage({ ...restProps }) {
   return <Image {...restProps} />;
+};
+TravelledRoutes.Overlay = function TravelledRoutesOverlay({
+  children,
+  ...restProps
+}) {
+  return <Overlay {...restProps}>{children}</Overlay>;
+};
+TravelledRoutes.Location = function TravelledRoutesLocation({
+  children,
+  ...restProps
+}) {
+  return <Location {...restProps}>{children}</Location>;
+};
+TravelledRoutes.H2 = function TravelledRoutesH2({ children, ...restProps }) {
+  return <H2 {...restProps}>{children}</H2>;
 };

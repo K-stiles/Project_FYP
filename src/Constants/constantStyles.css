@@ -1,4 +1,11 @@
-.container {
+.date-selector {
+   position: absolute;
+   top: 80px;
+   left: -10px;
+   box-shadow: 0px 1px 3px rgba(96, 108, 128, 0.05);
+}
+
+/* .container {
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(1fr, 3);
@@ -97,4 +104,4 @@
   .container .box {
     width: 100%;
   }
-}
+} */

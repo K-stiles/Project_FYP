@@ -87,7 +87,7 @@ export const Form = styled.form`
    /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15); */
 `;
 
-export const Label = styled.form`
+export const Label = styled.label`
    font-style: normal;
    font-weight: 500;
    font-size: 18px;

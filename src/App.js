@@ -1,9 +1,9 @@
 import { ThemeProvider } from "styled-components";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useQuery, gql } from "@apollo/client";
 
 import Layout from "./routes/Layout";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
 import ProfileLayout from "./routes/ProfileLayout";
 import DashboardLayout from "./routes/DashboardLayout";
 import {
@@ -12,6 +12,7 @@ import {
    ConfirmSignupPage,
    HomePage,
    LoginPage,
+   NotFound,
    ReservationOverviewPage,
    ReservationPaymentPage,
    ReservationSelectionPage,
@@ -20,9 +21,9 @@ import {
    SubscriptionsPage,
    SuccessSignupConfirmPage,
    TutorialsPage,
+   Unauthorized,
    UserDashboardPage,
 } from "./pages";
-import { Loader } from "./components";
 
 export const router = createBrowserRouter([
    {
@@ -56,79 +57,112 @@ export const router = createBrowserRouter([
       element: <SuccessSignupConfirmPage />,
    },
    {
+      path: "/unauthorized",
+      element: <Unauthorized />,
+   },
+   {
       path: "/",
-      element: <Layout />,
+      element: <ProtectedRoutes />,
       children: [
          {
-            index: true,
-            element: <HomePage />,
+            path: "dashboard",
+            element: <DashboardLayout />,
+            children: [
+               {
+                  index: true,
+                  element: <UserDashboardPage />,
+               },
+               {
+                  path: "/dashboard/reservation-selection",
+                  element: <ReservationSelectionPage />,
+               },
+               {
+                  path: "/dashboard/reservation-overview",
+                  element: <ReservationOverviewPage />,
+               },
+               {
+                  path: "/dashboard/reservation-payment",
+                  element: <ReservationPaymentPage />,
+               },
+               {
+                  path: "/dashboard/reservation-success",
+                  element: <ReservationSuccessPage />,
+               },
+            ],
+         },
+         {
+            path: "profile",
+            element: <ProfileLayout />,
+            children: [
+               {
+                  index: true,
+                  element: <AccountSettingsPage />,
+               },
+               {
+                  path: "/profile/subscriptions",
+                  element: <SubscriptionsPage />,
+               },
+               {
+                  path: "/profile/tutorials",
+                  element: <TutorialsPage />,
+               },
+            ],
          },
       ],
    },
+   // {
+   //    path: "/dashboard",
+   //    element: <DashboardLayout />,
+   //    children: [
+   //       {
+   //          index: true,
+   //          element: <UserDashboardPage />,
+   //       },
+   //       {
+   //          path: "/dashboard/reservation-selection",
+   //          element: <ReservationSelectionPage />,
+   //       },
+   //       {
+   //          path: "/dashboard/reservation-overview",
+   //          element: <ReservationOverviewPage />,
+   //       },
+   //    ],
+   // },
+   // {
+   //    path: "/dashboard/reservation-payment",
+   //    element: <ReservationPaymentPage />,
+   // },
+   // {
+   //    path: "/dashboard/reservation-success",
+   //    element: <ReservationSuccessPage />,
+   // },
+   // {
+   //    path: "/dashboard/profile",
+   //    element: <ProfileLayout />,
+   //    children: [
+   //       {
+   //          index: true,
+   //          element: <AccountSettingsPage />,
+   //       },
+   //       {
+   //          path: "/dashboard/profile/subscriptions",
+   //          element: <SubscriptionsPage />,
+   //       },
+   //       {
+   //          path: "/dashboard/profile/tutorials",
+   //          element: <TutorialsPage />,
+   //       },
+   //    ],
+   // },
+
    {
-      path: "/dashboard",
-      element: <DashboardLayout />,
-      children: [
-         {
-            index: true,
-            element: <UserDashboardPage />,
-         },
-         {
-            path: "/dashboard/reservation-selection",
-            element: <ReservationSelectionPage />,
-         },
-         {
-            path: "/dashboard/reservation-overview",
-            element: <ReservationOverviewPage />,
-         },
-      ],
-   },
-   {
-      path: "/dashboard/reservation-payment",
-      element: <ReservationPaymentPage />,
-   },
-   {
-      path: "/dashboard/reservation-success",
-      element: <ReservationSuccessPage />,
-   },
-   {
-      path: "/dashboard/profile",
-      element: <ProfileLayout />,
-      children: [
-         {
-            index: true,
-            element: <AccountSettingsPage />,
-         },
-         {
-            path: "/dashboard/profile/subscriptions",
-            element: <SubscriptionsPage />,
-         },
-         {
-            path: "/dashboard/profile/tutorials",
-            element: <TutorialsPage />,
-         },
-      ],
+      path: "*",
+      element: <NotFound />,
    },
 ]);
 
-const USERS = gql`
-   query Users {
-      users {
-         id
-         email
-         phone
-         createdAt
-      }
-   }
-`;
 function App() {
    const { theme } = useSelector((state) => state.theme);
-   // const { loading, error, data } = useQuery(USERS);
-
-   // if (loading) return <Loader />;
-   // if (!data) return <h1>no data</h1>;
-   // if (error) return <p>Error :(</p>;
-   // console.log(data);
 
    return (
       <>

@@ -19,7 +19,7 @@ export default function FaqContainer() {
     }
 
     setClicked(index);
-    console.log(clicked, index);
+    // console.log(clicked, index);
   }
 
   return (

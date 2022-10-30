@@ -1,8 +1,17 @@
-import React from "react";
-import { ProfileSidebar } from "../components";
+import { useDispatch } from "react-redux";
+
 import { profileSideBarRoute } from "../utils";
+import { ProfileSidebar } from "../components";
+import { logout } from "../redux/features/userSlice";
 
 export default function ProfileSidebarContainer() {
+   const dispatch = useDispatch();
+
+   function logUserOut() {
+      localStorage.removeItem("jwtToken");
+      dispatch(logout());
+   }
+
    return (
       <ProfileSidebar>
          <ProfileSidebar.Container>
@@ -18,12 +27,12 @@ export default function ProfileSidebarContainer() {
                ))}
             </ProfileSidebar.Labels>
 
-            <ProfileSidebar.LogoutRow>
+            <ProfileSidebar.LogoutRow onClick={logUserOut}>
                <ProfileSidebar.LabelIcon
                   src="/images/signout-icon.png"
                   alt="label icon"
                />
-               <ProfileSidebar.Label>LogOut</ProfileSidebar.Label>
+               <ProfileSidebar.LogOut>LogOut</ProfileSidebar.LogOut>
             </ProfileSidebar.LogoutRow>
          </ProfileSidebar.Container>
       </ProfileSidebar>

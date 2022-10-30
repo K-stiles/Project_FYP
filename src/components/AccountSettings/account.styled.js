@@ -27,7 +27,7 @@ export const ColTitle = styled.div`
    line-height: 55px;
    color: ${({ theme }) => theme.text};
 `;
-export const FormWrapper = styled.form`
+export const FormWrapper = styled.div`
    height: 91%;
    /* background: red; */
 
@@ -51,7 +51,7 @@ export const Label = styled.p`
    text-transform: uppercase;
    margin-left: 10px;
 
-   color: #000000;
+   color: ${({ theme }) => theme.text};
 `;
 export const InputWrapper = styled.div`
    width: 407.39px;

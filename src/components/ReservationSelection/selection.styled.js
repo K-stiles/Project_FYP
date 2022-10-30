@@ -19,9 +19,9 @@ export const Section = styled.section`
 export const AreaOne = styled.div`
    padding: 20px;
 `;
-export const GoBackBtn = styled(Link)`
-   text-decoration: none;
-   color: inherit;
+export const GoBackBtn = styled.button`
+   border: none;
+   outline: none;
 
    padding: 0.8rem 1.5rem;
    border-radius: 30px;
@@ -250,16 +250,46 @@ export const InputLabel = styled.h3`
    color: ${({ theme }) => theme.inputLabel};
 `;
 export const InputThree = styled.div`
-   border-right: 1px solid ${({ theme }) => theme.border};
    flex: 1.5;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   border-right: 1px solid ${({ theme }) => theme.border};
+   position: relative;
+`;
+export const DateWrapper = styled.div`
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+`;
+export const DateLabel = styled.div`
+   font-style: normal;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 21px;
+   color: ${({ theme }) => theme.inputLabel};
+`;
+export const Passengers = styled.div`
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
 `;
 export const InputFour = styled.div`
    border-right: 1px solid ${({ theme }) => theme.border};
 
    flex: 1.5;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
 `;
 export const InputFive = styled.div`
    flex: 1.5;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
 `;
 export const BiIconWrapper = styled.div`
    width: 40px;
@@ -316,7 +346,7 @@ export const AreaThree = styled.div`
 `;
 export const TimeWrapper = styled.div``;
 
-export const TravelTimeWrapper = styled.p`
+export const TravelTimeWrapper = styled.div`
    display: flex;
    align-items: center;
    gap: 10px;
@@ -332,7 +362,7 @@ export const TravelTime = styled.p`
       red ? theme.red : green ? theme.green : theme.text};
 `;
 
-export const DurationWrapper = styled.p`
+export const DurationWrapper = styled.div`
    display: flex;
    align-items: center;
    gap: 10px;
@@ -354,6 +384,20 @@ export const Price = styled.p`
    line-height: 27px;
    font-weight: 700;
 
+   color: ${({ theme }) => theme.primary};
+`;
+export const Sorry = styled.div`
+   padding: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   /* background: red; */
+`;
+export const SorryText = styled.h1`
+   font-style: normal;
+   font-weight: 600;
+   font-size: 3rem;
+   line-height: 21px;
    color: ${({ theme }) => theme.primary};
 `;
 
@@ -400,9 +444,9 @@ export const LoadMoreBtn = styled(Link)`
       transform: scale(1.02);
    }
 `;
-export const UpdateBtn = styled(Link)`
-   text-decoration: none;
-   color: inherit;
+export const UpdateBtn = styled.button`
+   border: none;
+   outline: none;
 
    display: flex;
    align-items: center;
@@ -417,8 +461,13 @@ export const UpdateBtn = styled(Link)`
 
    cursor: pointer;
    color: ${({ theme }) => theme.white};
-   background: ${({ theme }) => theme.primary};
+   background: ${({ theme, activate }) =>
+      activate ? theme.primary : "#bdc3c7"};
    transition: transform 0.3s ease 0s;
+
+   &:disabled {
+      cursor: not-allowed;
+   }
 
    &:hover {
       transform: scale(1.02);

@@ -1,6 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { gql } from "@apollo/client";
+
 import { Counter, RadioLabel, Sidebar } from "../components";
 import { SideBarDashBoardData, SideBarPreferenceData } from "../utils";
+import {
+   getReservation,
+   setBusType,
+   setPaymentMethod,
+   setReserveType,
+   increaseAdults,
+   decreaseAdults,
+   increaseChildren,
+   decreaseChildren,
+   increaseSeniors,
+   decreaseSeniors,
+   increaseLuggage,
+   decreaseLuggage,
+   increaseGroupNumber,
+   decreaseGroupNumber,
+   getTotalPasengers,
+} from "../redux/features/reservationSlice";
+import { logout } from "../redux/features/userSlice";
 
 const Img = {
    profile: "/images/sideBarImage.png",
@@ -15,35 +36,23 @@ const Img = {
    IconAlt: "chair icon",
 };
 
-export default function SidebarContainer() {
-   const [reservationType, setReservationType] = useState(null);
-   const [busType, setBusType] = useState(null);
-   const [paymentMethod, setPaymentMethod] = useState(null);
+export default function SidebarContainer({ user }) {
+   const dispatch = useDispatch();
+   const { groupNumber, luggage, adults, children, seniors } =
+      useSelector(getReservation);
 
-   const [groupNumber, setGroupNumber] = useState(0);
-   const [adults, setAdults] = useState(0);
-   const [children, setChildren] = useState(0);
-   const [seniors, setSeniors] = useState(0);
+   const getReservationType = (e) => dispatch(setReserveType(e.target.value));
+   const getBusType = (e) => dispatch(setBusType(e.target.value));
+   const getPaymentMethod = (e) => dispatch(setPaymentMethod(e.target.value));
 
-   const getReservationType = (e) => setReservationType(e.target.value);
-   const getBusType = (e) => setBusType(e.target.value);
-   const getPaymentMethod = (e) => setPaymentMethod(e.target.value);
+   useEffect(() => {
+      dispatch(getTotalPasengers());
+   }, [dispatch, adults, children, seniors]);
 
-   const decreaseGroupNumber = () => setGroupNumber((gNumb) => gNumb - 1);
-   const increaseGroupNumber = () => setGroupNumber((gNumb) => gNumb + 1);
-
-   const decreaseAdults = () => setAdults((adults) => adults - 1);
-   const increaseAdults = () => setAdults((adults) => adults + 1);
-
-   const decreaseChildren = () => setChildren((children) => children - 1);
-   const increaseChildren = () => setChildren((children) => children + 1);
-
-   const decreaseSeniors = () => setSeniors((seniors) => seniors - 1);
-   const increaseSeniors = () => setSeniors((seniors) => seniors + 1);
-
-   // console.log("ReservationType,: ", reservationType);
-   // console.log("BusType,: ", busType);
-   // console.log("PaymentMethod,: ", paymentMethod);
+   function logUserOut() {
+      localStorage.removeItem("jwtToken");
+      dispatch(logout());
+   }
 
    return (
       <Sidebar>
@@ -66,8 +75,10 @@ export default function SidebarContainer() {
                   </Sidebar.NotifyNumber>
                </Sidebar.UserImage>
                <Sidebar.UserLabels>
-                  <Sidebar.UserName>Jennifer Jones</Sidebar.UserName>
-                  <Sidebar.UserEmail>jenjones@gmail.com</Sidebar.UserEmail>
+                  <Sidebar.UserName>
+                     {user.firstName} {user.lastName}
+                  </Sidebar.UserName>
+                  <Sidebar.UserEmail>{user.email}</Sidebar.UserEmail>
                </Sidebar.UserLabels>
                <Sidebar.UpdownIconWapper>
                   <Sidebar.UpdownIcon
@@ -102,9 +113,13 @@ export default function SidebarContainer() {
                               <Sidebar.ItemLabel>
                                  {label.name}
                               </Sidebar.ItemLabel>
-                              <Sidebar.NumberWrapper>
-                                 <Sidebar.LabelNumber>3</Sidebar.LabelNumber>
-                              </Sidebar.NumberWrapper>
+                              {label.number && (
+                                 <Sidebar.NumberWrapper>
+                                    <Sidebar.LabelNumber>
+                                       {label.number}
+                                    </Sidebar.LabelNumber>
+                                 </Sidebar.NumberWrapper>
+                              )}
                            </Sidebar.MenuItemLink>
 
                            {label.subLabel &&
@@ -139,8 +154,12 @@ export default function SidebarContainer() {
                                        <Counter
                                           label={item.option}
                                           number={groupNumber}
-                                          decrease={decreaseGroupNumber}
-                                          increase={increaseGroupNumber}
+                                          decrease={() =>
+                                             dispatch(decreaseGroupNumber())
+                                          }
+                                          increase={() =>
+                                             dispatch(increaseGroupNumber())
+                                          }
                                           disabled={
                                              groupNumber <= 0 ? true : false
                                           }
@@ -150,8 +169,12 @@ export default function SidebarContainer() {
                                        <Counter
                                           label={item.option}
                                           number={adults}
-                                          decrease={decreaseAdults}
-                                          increase={increaseAdults}
+                                          decrease={() =>
+                                             dispatch(decreaseAdults())
+                                          }
+                                          increase={() =>
+                                             dispatch(increaseAdults())
+                                          }
                                           disabled={adults <= 0 ? true : false}
                                        />
                                     )}
@@ -159,8 +182,12 @@ export default function SidebarContainer() {
                                        <Counter
                                           label={item.option}
                                           number={children}
-                                          decrease={decreaseChildren}
-                                          increase={increaseChildren}
+                                          decrease={() =>
+                                             dispatch(decreaseChildren())
+                                          }
+                                          increase={() =>
+                                             dispatch(increaseChildren())
+                                          }
                                           disabled={
                                              children <= 0 ? true : false
                                           }
@@ -170,9 +197,26 @@ export default function SidebarContainer() {
                                        <Counter
                                           label={item.option}
                                           number={seniors}
-                                          decrease={decreaseSeniors}
-                                          increase={increaseSeniors}
+                                          decrease={() =>
+                                             dispatch(decreaseSeniors())
+                                          }
+                                          increase={() =>
+                                             dispatch(increaseSeniors())
+                                          }
                                           disabled={seniors <= 0 ? true : false}
+                                       />
+                                    )}
+                                    {item.option === "luggage" && (
+                                       <Counter
+                                          label={item.option}
+                                          number={luggage}
+                                          decrease={() =>
+                                             dispatch(decreaseLuggage())
+                                          }
+                                          increase={() =>
+                                             dispatch(increaseLuggage())
+                                          }
+                                          disabled={luggage <= 0 ? true : false}
                                        />
                                     )}
 
@@ -233,7 +277,7 @@ export default function SidebarContainer() {
 
                {/* LOGOUT - SECTION */}
 
-               <Sidebar.LogoutSection>
+               <Sidebar.LogoutSection onClick={logUserOut}>
                   <Sidebar.MenuIconWapper>
                      <Sidebar.MenuIcon
                         src={"/images/sign-out-alt.png"}
@@ -247,3 +291,21 @@ export default function SidebarContainer() {
       </Sidebar>
    );
 }
+
+const FETCH_USER = gql`
+   query User($userId: ID!) {
+      user(userId: $userId) {
+         id
+         firstName
+         lastName
+         email
+         phone
+         street
+         city
+         zip
+         createdAt
+         userReservations
+         img
+      }
+   }
+`;

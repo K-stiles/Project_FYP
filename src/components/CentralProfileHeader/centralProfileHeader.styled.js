@@ -26,7 +26,11 @@ export const ProfileName = styled.h2`
 
    color: ${({ theme }) => theme.white};
 `;
-export const ProfileLogout = styled.h2`
+export const ProfileLogout = styled.button`
+   border: none;
+   outline: none;
+   padding: 1rem;
+
    font-style: normal;
    font-weight: 500;
    font-size: 1.3rem;
@@ -34,6 +38,8 @@ export const ProfileLogout = styled.h2`
    text-transform: capitalize;
 
    margin-left: auto;
+   cursor: pointer;
 
    color: ${({ theme }) => theme.white};
+   background: ${({ theme }) => theme.primary};
 `;

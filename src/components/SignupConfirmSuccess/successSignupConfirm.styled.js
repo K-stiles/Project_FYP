@@ -32,7 +32,7 @@ export const Right = styled.div`
    background: linear-gradient(180deg, #429ad3 0%, #094166 100%);
 `;
 
-export const Form = styled.form`
+export const Div = styled.form`
    width: 400px;
    /* background-color: red; */
 `;
@@ -160,10 +160,7 @@ export const Input = styled.input`
    background-color: #f3f4f6;
 `;
 
-export const BtnLink = styled(Link)`
-   text-decoration: none;
-   color: inherit;
-`;
+export const BtnLink = styled.p``;
 
 export const SuccessButton = styled.button`
    cursor: pointer;

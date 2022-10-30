@@ -91,9 +91,9 @@ export const UserProfile = styled.img`
    border-radius: 40px;
 `;
 
-export const GoBackBtn = styled(Link)`
-   text-decoration: none;
-   color: inherit;
+export const GoBackBtn = styled.button`
+   border: none;
+   outline: none;
 
    padding: 0.8rem 1.5rem;
    border-radius: 30px;

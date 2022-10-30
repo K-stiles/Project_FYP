@@ -29,6 +29,8 @@ import {
    TopRow,
    FBSocialIconWrapper,
    BtnLink,
+   ErrorMsg,
+   LabelRow,
 } from "./login.styled";
 
 export default function Login({ children, ...restProps }) {
@@ -73,6 +75,12 @@ Login.Input = function LoginInput({ ...restProps }) {
 };
 Login.InputLabel = function LoginInputLabel({ children, ...restProps }) {
    return <InputLabel {...restProps}>{children}</InputLabel>;
+};
+Login.ErrorMsg = function LoginErrorMsg({ children, ...restProps }) {
+   return <ErrorMsg {...restProps}>{children}</ErrorMsg>;
+};
+Login.LabelRow = function LoginLabelRow({ children, ...restProps }) {
+   return <LabelRow {...restProps}>{children}</LabelRow>;
 };
 Login.SocialText = function LoginSocialText({ children, ...restProps }) {
    return <SocialText {...restProps}>{children}</SocialText>;

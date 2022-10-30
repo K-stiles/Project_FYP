@@ -1,12 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ReservationOverview } from "../components";
 import { overviewData, userImages } from "../utils";
 
 export default function ReservationOverviewContainer() {
+   const navigate = useNavigate();
+
    return (
       <ReservationOverview>
          <ReservationOverview.SectionOne>
-            <ReservationOverview.GoBackBtn to="">
+            <ReservationOverview.GoBackBtn onClick={() => navigate(-1)}>
                Go Back
             </ReservationOverview.GoBackBtn>
             <ReservationOverview.MainHeaderSection>

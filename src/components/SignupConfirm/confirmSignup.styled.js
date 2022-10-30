@@ -106,9 +106,15 @@ export const InputWrapper = styled.div`
    width: 100%;
    height: 45px;
    margin: 10px 0px 30px 0px;
+   padding: 0 2px;
    border-radius: 10px;
    background-color: #f3f4f6;
+
+   border: 1px solid
+      ${({ theme, emailError, authCodeError }) =>
+         emailError || authCodeError ? theme.red : "#f3f4f6"};
 `;
+
 export const Image = styled.img`
    width: 120px;
    height: 120px;
@@ -160,9 +166,28 @@ export const Input = styled.input`
    background-color: #f3f4f6;
 `;
 
-export const BtnLink = styled(Link)`
-   text-decoration: none;
-   color: inherit;
+export const ErrorMsg = styled.p`
+   font-style: normal;
+   font-weight: 400;
+   font-size: 14.5591px;
+   line-height: 17px;
+   text-transform: capitalize;
+   color: ${({ theme }) => theme.red};
+`;
+export const LabelRow = styled.div`
+   display: flex;
+   column-gap: 20px;
+   align-items: center;
+   justify-content: space-between;
+`;
+
+export const BtnLink = styled.p`
+   font-style: normal;
+   font-weight: 500;
+   font-size: 1.1rem;
+   line-height: 19px;
+
+   color: ${({ theme }) => theme.white};
 `;
 
 export const ConfirmButton = styled.button`
@@ -182,14 +207,19 @@ export const ConfirmButton = styled.button`
    font-weight: 400;
    line-height: 19px;
 
-   background: linear-gradient(90deg, #053b5e 16.2%, #256c9b 100%);
-   box-shadow: 0px 27.7767px 55.5535px rgba(79, 70, 229, 0.15);
    transition: transform 0.3s ease 0s;
+   box-shadow: 0px 27.7767px 55.5535px rgba(79, 70, 229, 0.15);
+   background: ${({ activateBtn }) =>
+      activateBtn
+         ? `linear-gradient( ${90}deg, #053b5e ${16.2}%, #256c9b ${100}%)`
+         : `#bdc3c7`};
+
+   &:disabled {
+      cursor: not-allowed;
+   }
 
    &:hover {
       transform: scale(1.01);
-      color: #fff;
-      background-color: #025993;
    }
 `;
 

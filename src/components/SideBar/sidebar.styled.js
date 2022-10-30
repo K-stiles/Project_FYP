@@ -237,13 +237,19 @@ export const OptionsLable = styled.li`
 `;
 
 // ------------- Logout Section ----------//
-export const LogoutSection = styled.div`
+export const LogoutSection = styled.button`
+   border: none;
+   outline: none;
+   background: transparent;
+   
    display: flex;
    align-items: center;
    gap: 10px;
 
    margin-top: 3rem;
-   padding: 20px;
+   padding: 15px;
+   margin-left: 20px;
+   width: 70%;
    cursor: pointer;
    /* background-color: red; */
 `;

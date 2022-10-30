@@ -43,4 +43,8 @@ export const Button = styled.button`
       color: ${({ theme }) => theme.white};
       background: ${({ theme }) => theme.primary};
    }
+
+   &:disabled {
+      cursor: not-allowed;
+   }
 `;

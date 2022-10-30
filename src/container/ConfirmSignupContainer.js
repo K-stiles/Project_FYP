@@ -1,9 +1,39 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { useNavigate } from "react-router-dom";
 import { ConfirmSignup } from "../components";
+import { GET_USER } from "../redux/features/userSlice";
+import { validateInput } from "../utils";
 
 export default function ConfirmSignupContainer() {
-   const [email, setEmail] = useState("");
+   const navigate = useNavigate();
+   const { user } = useSelector(GET_USER);
+
+   const [email, setEmail] = useState(user?.email);
    const [authCode, setAuthCode] = useState("");
+   const [emailError, setEmailError] = useState("");
+   const [authCodeError, setAuthCodeError] = useState("");
+
+   function activateButton() {
+      return (
+         email !== "" &&
+         authCode !== "" &&
+         emailError === "" &&
+         authCodeError === ""
+      );
+   }
+
+   const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+         // console.log(email);
+         // console.log(authCode);
+         navigate("/registeration-succcess", { replace: true });
+      } catch (err) {
+         console.log(err);
+      }
+   };
 
    return (
       <ConfirmSignup>
@@ -36,7 +66,7 @@ export default function ConfirmSignupContainer() {
                      </ConfirmSignup.SocialRow>
                   </ConfirmSignup.TopRow>
 
-                  <ConfirmSignup.Form>
+                  <ConfirmSignup.Form onSubmit={handleSubmit}>
                      <ConfirmSignup.Title>
                         Confirm Registration
                      </ConfirmSignup.Title>
@@ -48,34 +78,61 @@ export default function ConfirmSignupContainer() {
                         strongly advise you to store it safely.
                      </ConfirmSignup.Info>
 
-                     <ConfirmSignup.InputLabel>Email</ConfirmSignup.InputLabel>
-                     <ConfirmSignup.InputWrapper>
+                     <ConfirmSignup.LabelRow>
+                        <ConfirmSignup.InputLabel htmlFor="email">
+                           Email
+                        </ConfirmSignup.InputLabel>
+                        <ConfirmSignup.ErrorMsg>{`${emailError}`}</ConfirmSignup.ErrorMsg>
+                     </ConfirmSignup.LabelRow>
+                     <ConfirmSignup.InputWrapper
+                        emailError={emailError !== "" ? true : false}
+                     >
                         <ConfirmSignup.Input
                            type="email"
                            name="email"
                            placeholder="example@yourmail.com"
                            value={email}
-                           onChange={(e) => setEmail(e.target.value)}
+                           onChange={(e) => {
+                              //validate
+                              validateInput.validateEmail(
+                                 e.target.value,
+                                 setEmailError
+                              );
+                              setEmail(e.target.value);
+                           }}
                         />
                      </ConfirmSignup.InputWrapper>
 
-                     <ConfirmSignup.InputLabel>
-                        Confirmation Code
-                     </ConfirmSignup.InputLabel>
-                     <ConfirmSignup.InputWrapper>
+                     <ConfirmSignup.LabelRow>
+                        <ConfirmSignup.InputLabel htmlFor="code">
+                           Confirmation Code
+                        </ConfirmSignup.InputLabel>
+                        <ConfirmSignup.ErrorMsg>{`${authCodeError}`}</ConfirmSignup.ErrorMsg>
+                     </ConfirmSignup.LabelRow>
+                     <ConfirmSignup.InputWrapper
+                        authCodeError={authCodeError !== "" ? true : false}
+                     >
                         <ConfirmSignup.Input
                            type="text"
                            name="authCode"
                            placeholder="*******"
                            value={authCode}
-                           onChange={(e) => setAuthCode(e.target.value)}
+                           onChange={(e) => {
+                              //validate
+                              validateInput.validateAuthCode(
+                                 e.target.value,
+                                 setAuthCodeError
+                              );
+                              setAuthCode(e.target.value);
+                           }}
                         />
                      </ConfirmSignup.InputWrapper>
 
-                     <ConfirmSignup.ConfirmButton>
-                        <ConfirmSignup.BtnLink to={"/registeration-succcess"}>
-                           Send
-                        </ConfirmSignup.BtnLink>
+                     <ConfirmSignup.ConfirmButton
+                        disabled={activateButton() ? false : true}
+                        activateBtn={activateButton() ? true : false}
+                     >
+                        <ConfirmSignup.BtnLink>Send</ConfirmSignup.BtnLink>
                      </ConfirmSignup.ConfirmButton>
                   </ConfirmSignup.Form>
 

@@ -1,7 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { ProfileNavbar } from "../components";
+import { GET_USER } from "../redux/features/userSlice";
 
 export default function ProfileNavbarContainer() {
+   const user = useSelector(GET_USER);
+
    return (
       <ProfileNavbar>
          <ProfileNavbar.Container>
@@ -12,7 +16,7 @@ export default function ProfileNavbarContainer() {
                />
             </ProfileNavbar.ProfileWrapper>
             <ProfileNavbar.ProfileName>
-               Jannifer Jones
+               {`${user?.user?.firstName} ${user?.user?.lastName}`}
             </ProfileNavbar.ProfileName>
          </ProfileNavbar.Container>
       </ProfileNavbar>

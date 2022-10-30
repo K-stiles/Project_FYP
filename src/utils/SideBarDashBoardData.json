@@ -116,6 +116,19 @@
       ]
    },
    {
+      "id": "dashboard-123sbahj24llllooo68",
+      "name": "Number of Luggage",
+      "icon": "/images/users.png",
+      "iconAlt": "luggage",
+      "number": "",
+      "subLabel": [
+         {
+            "option": "luggage",
+            "Counter": "luggage"
+         }
+      ]
+   },
+   {
       "id": "dashboard-12324njbjxjbnjasbvxy76257738",
       "name": "Payment  Method",
       "icon": "/images/coins.png",

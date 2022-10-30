@@ -1,13 +1,28 @@
 import React, { useState } from "react";
-import { Login } from "../components";
+import { useMutation, gql } from "@apollo/client";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { validateInput } from "../utils";
+import { Loader, Login } from "../components";
+import { fetchUser } from "../redux/features/userSlice";
 
 export default function LoginContainer() {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
-
    const [emailError, setEmailError] = useState("");
    const [passwordError, setPasswordError] = useState("");
+
+   const navigate = useNavigate();
+   const dispatch = useDispatch();
+
+   const [login, { loading, error }] = useMutation(LOGIN_USER, {
+      onError(loginErr) {},
+      update(_, result) {
+         localStorage.setItem("jwtToken", result.data?.loginUser?.token);
+         // navigate("/dashboard", { replace: true });
+      },
+   });
 
    function activateButton() {
       return (
@@ -18,13 +33,24 @@ export default function LoginContainer() {
       );
    }
 
+   if (loading) return <Loader />;
+   if (error) return `Submission error! ${error.message}`;
+
    const handleSubmit = async (e) => {
       e.preventDefault();
 
       try {
-         console.log(email);
-         console.log(password);
-
+         const { data } = await login({
+            variables: { input: { email, password } },
+         });
+         dispatch(fetchUser(data?.loginUser));
+         navigate(
+            "/dashboard",
+            {
+               state: { email },
+            },
+            { replace: true }
+         );
          //clear state and controlled inputs
          setEmail("");
          setPassword("");
@@ -71,8 +97,15 @@ export default function LoginContainer() {
                         enter your Journey platform.
                      </Login.Info>
 
-                     <Login.InputLabel htmlFor="email">Email</Login.InputLabel>
-                     <Login.InputWrapper>
+                     <Login.LabelRow>
+                        <Login.InputLabel htmlFor="email">
+                           Email
+                        </Login.InputLabel>
+                        <Login.ErrorMsg>{`${emailError}`}</Login.ErrorMsg>
+                     </Login.LabelRow>
+                     <Login.InputWrapper
+                        emailError={emailError !== "" ? true : false}
+                     >
                         <Login.Input
                            type="email"
                            name="email"
@@ -89,14 +122,16 @@ export default function LoginContainer() {
                            }}
                         />
                      </Login.InputWrapper>
-                     <div
-                        style={{ color: "red" }}
-                     >{`emailError: ${emailError}`}</div>
 
-                     <Login.InputLabel htmlFor="password">
-                        Password
-                     </Login.InputLabel>
-                     <Login.InputWrapper>
+                     <Login.LabelRow>
+                        <Login.InputLabel htmlFor="password">
+                           Password
+                        </Login.InputLabel>
+                        <Login.ErrorMsg>{`${passwordError}`}</Login.ErrorMsg>
+                     </Login.LabelRow>
+                     <Login.InputWrapper
+                        passwordError={passwordError !== "" ? true : false}
+                     >
                         <Login.Input
                            type="password"
                            name="password"
@@ -113,9 +148,6 @@ export default function LoginContainer() {
                            }}
                         />
                      </Login.InputWrapper>
-                     <div
-                        style={{ color: "red" }}
-                     >{`passwordError: ${passwordError}`}</div>
 
                      <Login.Row>
                         <Login.CheckboxLabel>Remember Me</Login.CheckboxLabel>
@@ -123,7 +155,7 @@ export default function LoginContainer() {
 
                      <Login.RegisterButton
                         disabled={activateButton() ? false : true}
-                        // activateBtn={activateButton() ? true : false}
+                        activateBtn={activateButton() ? true : false}
                      >
                         <Login.BtnLink to="/dashboard">Login</Login.BtnLink>
                      </Login.RegisterButton>
@@ -156,3 +188,23 @@ export default function LoginContainer() {
       </Login>
    );
 }
+
+const LOGIN_USER = gql`
+   mutation LoginUser($input: LoginInput) {
+      loginUser(input: $input) {
+         user {
+            id
+            firstName
+            lastName
+            email
+            phone
+            street
+            city
+            zip
+            createdAt
+            userReservations
+         }
+         token
+      }
+   }
+`;

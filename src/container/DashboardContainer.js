@@ -1,64 +1,145 @@
-import React from "react";
-import { Dashboard } from "../components";
+import { format } from "date-fns";
+import { useEffect, useState } from "react";
+import { DateRange } from "react-date-range";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useMutation, gql } from "@apollo/client";
+
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
+import "../constants/constantStyles.css";
+
+import { Dashboard, Loader } from "../components";
 import {
-   dashboardTopnav,
    LiveActivityData,
    tableHeaderData,
    tableRowData,
    userImages,
 } from "../utils";
+import {
+   setLeavingDate,
+   setReturningDate,
+   getReservation,
+} from "../redux/features/reservationSlice";
 
 export default function DashboardContainer() {
+   const {
+      reservationType,
+      busType,
+      paymentMethod,
+      leavingDate,
+      returningDate,
+      groupNumber,
+      luggage,
+      adults,
+      children,
+      seniors,
+      totalPasengers,
+   } = useSelector(getReservation);
+   const dispatch = useDispatch();
+   const navigate = useNavigate();
+
+   const [error, setError] = useState("");
+   const [reservationID, setReservationID] = useState("");
+   const [pickupTown, setPickupTown] = useState("");
+   const [dropPointTown, setDropPointTown] = useState("");
+   const [openDate, setOpenDate] = useState(false);
+   const [date, setDate] = useState([
+      {
+         startDate: new Date(),
+         endDate: new Date(),
+         key: "selection",
+      },
+   ]);
+
+   const getOrigin = (e) => setPickupTown(e.target.value);
+   const getDestination = (e) => setDropPointTown(e.target.value);
+   const getDate = (e) => {
+      dispatch(
+         setLeavingDate(`${format(date[0].startDate, "eeee hh:mm aaa P")}`)
+      );
+      dispatch(
+         setReturningDate(`${format(date[0].endDate, "eeee hh:mm aaa P")}`)
+      );
+   };
+
+   const activate = () => {
+      return (
+         reservationType !== null &&
+         busType !== null &&
+         paymentMethod !== null &&
+         pickupTown !== "" &&
+         dropPointTown !== "" &&
+         leavingDate !== null &&
+         returningDate !== null &&
+         groupNumber !== 0 &&
+         luggage !== 0 &&
+         totalPasengers !== 0
+      );
+   };
+
+   useEffect(() => {
+      activate();
+   }, [pickupTown, dropPointTown]);
+
+   const handleReservationSearch = async (e) => {
+      e.preventDefault();
+      if (activate() === false) return;
+      try {
+         await reservation({
+            variables: {
+               input: {
+                  type: reservationType,
+                  origin: pickupTown,
+                  destination: dropPointTown,
+                  leavingDate: date[0].startDate,
+                  returningDate: date[0].endDate,
+                  luggages: luggage,
+                  paymentMethod: paymentMethod,
+                  groupNumber,
+                  adults,
+                  children,
+                  seniors,
+                  bus: [
+                     {
+                        busType,
+                        busStatus: "loading",
+                        numberOfSeats: 100,
+                        seatsFilled: 20,
+                        numberOfPassengers: totalPasengers,
+                     },
+                  ],
+               },
+            },
+         });
+         navigate("/dashboard/reservation-selection", {
+            state: { pickupTown, dropPointTown, date,reservationID },
+         });
+      } catch (error) {
+         console.log(error);
+      }
+   };
+
+   const [reservation, { loading }] = useMutation(CREATE_RESERVATION, {
+      update: (_, { data }) => setReservationID(data.createReservation.id),
+      onError: (err) => setError(err),
+   });
+
+   if (loading) return <Loader />;
+   if (error) {
+      return (
+         <Dashboard>
+            <Dashboard.Container>
+               <Dashboard.MainHeader>{`Submission error! ${error.message}`}</Dashboard.MainHeader>
+            </Dashboard.Container>
+         </Dashboard>
+      );
+   }
+
    return (
       <Dashboard>
          <Dashboard.Container>
             <div>
-               {/* TOP NAV REGION */}
-               {/* <Dashboard.TopRegion>
-                  <Dashboard.SearchWrapper>
-                     <Dashboard.SearchIconWrapper>
-                        <Dashboard.SearchIcon
-                           src={"/images/search-icon.png"}
-                           alt={"search icon"}
-                        />
-                     </Dashboard.SearchIconWrapper>
-
-                     <Dashboard.SearchInput type="text" placeholder="Search" />
-                     <Dashboard.SearchIconWrapper>
-                        <Dashboard.SearchIcon
-                           src={"/images/topnav-icon.png"}
-                           alt={"forrward icon"}
-                        />
-                     </Dashboard.SearchIconWrapper>
-                  </Dashboard.SearchWrapper>
-
-                  <Dashboard.RouteLinks>
-                     {dashboardTopnav?.map((item) => (
-                        <Dashboard.RouteLink
-                           to={item.route}
-                           key={`dashboardTopnav--${item.id}`}
-                        >
-                           <Dashboard.LinkText>{item.name}</Dashboard.LinkText>
-                        </Dashboard.RouteLink>
-                     ))}
-                  </Dashboard.RouteLinks>
-
-                  <Dashboard.NotifySection>
-                     <Dashboard.BellWrapper>
-                        <Dashboard.BellIcon
-                           src={"/images/bell-icon.png"}
-                           alt={"bell icon"}
-                        />
-                     </Dashboard.BellWrapper>
-                     <Dashboard.ProfileWrapper>
-                        <Dashboard.ProfileImage
-                           src={"/images/sideBarImage.png"}
-                           alt={"profile image"}
-                        />
-                     </Dashboard.ProfileWrapper>
-                  </Dashboard.NotifySection>
-               </Dashboard.TopRegion> */}
-
                <Dashboard.CentralRegion>
                   {/* //TODO: ------------- AREA ONE --------------- */}
                   <Dashboard.AreaOne>
@@ -158,54 +239,119 @@ export default function DashboardContainer() {
                            })}
                         </Dashboard.TopImages>
                      </Dashboard.MainHeaderSection>
-                     <Dashboard.InputWrapper>
-                        <Dashboard.InputOne>
-                           <Dashboard.OrigninLabel>
-                              Origin
-                           </Dashboard.OrigninLabel>
-                           <Dashboard.OrigninInputWrapper>
-                              <Dashboard.OrigninInput
-                                 placeholder={"Leaving from"}
+
+                     {/* TODO: RESERVATION FORM */}
+                     <Dashboard.Form onSubmit={handleReservationSearch}>
+                        <Dashboard.InputWrapper>
+                           <Dashboard.InputOne>
+                              <Dashboard.OrigninLabel>
+                                 Origin
+                              </Dashboard.OrigninLabel>
+                              <Dashboard.OrigninInputWrapper>
+                                 <Dashboard.OrigninInput
+                                    placeholder={"Leaving from"}
+                                    onChange={getOrigin}
+                                    value={pickupTown}
+                                 />
+                              </Dashboard.OrigninInputWrapper>
+                           </Dashboard.InputOne>
+
+                           <Dashboard.BiIconWrapper>
+                              <Dashboard.BiIcon
+                                 src={"/images/bi-directional-arrow-icon.png"}
+                                 alt={"bi-directional-arrow-icon image"}
                               />
-                           </Dashboard.OrigninInputWrapper>
-                        </Dashboard.InputOne>
+                           </Dashboard.BiIconWrapper>
 
-                        <Dashboard.BiIconWrapper>
-                           <Dashboard.BiIcon
-                              src={"/images/bi-directional-arrow-icon.png"}
-                              alt={"bi-directional-arrow-icon image"}
-                           />
-                        </Dashboard.BiIconWrapper>
+                           <Dashboard.InputTwo>
+                              <Dashboard.DestinationLabel>
+                                 Destination
+                              </Dashboard.DestinationLabel>
+                              <Dashboard.DestinationInputWrapper>
+                                 <Dashboard.DestinationInput
+                                    placeholder={"Going to"}
+                                    onChange={getDestination}
+                                    value={dropPointTown}
+                                 />
+                              </Dashboard.DestinationInputWrapper>
+                           </Dashboard.InputTwo>
 
-                        <Dashboard.InputTwo>
-                           <Dashboard.DestinationLabel>
-                              Destination
-                           </Dashboard.DestinationLabel>
-                           <Dashboard.DestinationInputWrapper>
-                              <Dashboard.DestinationInput
-                                 placeholder={"Going to"}
-                              />
-                           </Dashboard.DestinationInputWrapper>
-                        </Dashboard.InputTwo>
+                           <Dashboard.InputThree>
+                              <Dashboard.InputLabel>
+                                 Leaving Date
+                              </Dashboard.InputLabel>
+                              <Dashboard.DateWrapper
+                                 onClick={() =>
+                                    setOpenDate((openDate) => !openDate)
+                                 }
+                              >
+                                 <Dashboard.DateLabel>
+                                    {`${format(
+                                       date[0].startDate,
+                                       "dd/MM/yyyy"
+                                    )}`}
+                                 </Dashboard.DateLabel>
+                              </Dashboard.DateWrapper>
 
-                        <Dashboard.InputThree>
-                           <Dashboard.InputLabel>
-                              Leaving Date
-                           </Dashboard.InputLabel>
-                        </Dashboard.InputThree>
+                              {/* <div ref={outsideClickRef}> */}
+                              {openDate && (
+                                 <DateRange
+                                    editableDateInputs={true}
+                                    moveRangeOnFirstSelection={false}
+                                    ranges={date}
+                                    className="date-selector"
+                                    minDate={new Date()}
+                                    onChange={(item) => {
+                                       setDate([item.selection]);
+                                       getDate();
+                                    }}
+                                 />
+                              )}
+                              {/* </div> */}
+                           </Dashboard.InputThree>
 
-                        <Dashboard.InputFour>
-                           <Dashboard.InputLabel>
-                              Return Date
-                           </Dashboard.InputLabel>
-                        </Dashboard.InputFour>
+                           <Dashboard.InputFour>
+                              <Dashboard.InputLabel>
+                                 Return Date
+                              </Dashboard.InputLabel>
+                              <Dashboard.DateWrapper
+                                 onClick={() =>
+                                    setOpenDate((openDate) => !openDate)
+                                 }
+                              >
+                                 <Dashboard.DateLabel>
+                                    {`${format(date[0].endDate, "dd/MM/yyyy")}`}
+                                 </Dashboard.DateLabel>
+                              </Dashboard.DateWrapper>
+                           </Dashboard.InputFour>
 
-                        <Dashboard.InputFive>
-                           <Dashboard.InputLabel>
-                              Passengers
-                           </Dashboard.InputLabel>
-                        </Dashboard.InputFive>
-                     </Dashboard.InputWrapper>
+                           <Dashboard.InputFive>
+                              <Dashboard.InputLabel>
+                                 Passengers
+                              </Dashboard.InputLabel>
+                              <Dashboard.Passengers>
+                                 <Dashboard.DateLabel>
+                                    {totalPasengers}
+                                 </Dashboard.DateLabel>
+                              </Dashboard.Passengers>
+                           </Dashboard.InputFive>
+                        </Dashboard.InputWrapper>
+
+                        {/* //TODO: ------------- AREA FOUR --------------- */}
+                        <Dashboard.AreaFour>
+                           <Dashboard.ProceedBtn
+                              disabled={activate() ? false : true}
+                              activate={activate()}
+                           >
+                              <Dashboard.BtnRow>
+                                 Proceed
+                                 <Dashboard.EmojiHand>
+                                    &#128073;
+                                 </Dashboard.EmojiHand>
+                              </Dashboard.BtnRow>
+                           </Dashboard.ProceedBtn>
+                        </Dashboard.AreaFour>
+                     </Dashboard.Form>
                   </Dashboard.AreaTwo>
 
                   {/* //TODO: ------------- AREA THREE --------------- */}
@@ -229,7 +375,6 @@ export default function DashboardContainer() {
 
                      {/* ------- Table Column --------- */}
                      {tableRowData?.map((rowData) => {
-                        // console.log(rowData);
                         return (
                            <Dashboard.TableRow
                               key={`tableRowData--${rowData.id}`}
@@ -286,45 +431,52 @@ export default function DashboardContainer() {
                   </Dashboard.AreaThree>
 
                   {/* //TODO: ------------- AREA FOUR --------------- */}
-                  <Dashboard.AreaFour>
-                     <Dashboard.ProceedBtn to="/dashboard/reservation-selection">
+                  {/* <Dashboard.AreaFour>
+                     <Dashboard.ProceedBtn onClick={handleReservation}>
                         <Dashboard.BtnRow>
-                           <p>Proceed</p>
+                           Proceed
                            <Dashboard.EmojiHand>&#128073;</Dashboard.EmojiHand>
                         </Dashboard.BtnRow>
                      </Dashboard.ProceedBtn>
-                  </Dashboard.AreaFour>
+                  </Dashboard.AreaFour> */}
                </Dashboard.CentralRegion>
             </div>
-            {/* <Dashboard.PictureBar>
-               <Dashboard.CloseWrapper>
-                  <Dashboard.CloseIcon
-                     src={"/images/close-icon.png"}
-                     alt={"close icon"}
-                  />
-               </Dashboard.CloseWrapper>
-               <Dashboard.Line />
-               <Dashboard.UsersContainer>
-                  {userImages.map((item) => (
-                     <Dashboard.UserImageWrapper
-                        key={`userImages---${item.id}`}
-                     >
-                        <Dashboard.UserImage
-                           src={"/images/sideBarImage.png"}
-                           alt={"close icon"}
-                        />
-                     </Dashboard.UserImageWrapper>
-                  ))}
-               </Dashboard.UsersContainer>
-               <Dashboard.ArrowLine />
-               <Dashboard.ArrowWrapper>
-                  <Dashboard.ArrowIcon
-                     src={"/images/arrow_forward.png"}
-                     alt={"close icon"}
-                  />
-               </Dashboard.ArrowWrapper>
-            </Dashboard.PictureBar> */}
          </Dashboard.Container>
       </Dashboard>
    );
 }
+
+const CREATE_RESERVATION = gql`
+   mutation CreateReservation($input: ReservationInput) {
+      createReservation(input: $input) {
+         id
+         type
+         origin
+         destination
+         duration
+         leavingDate
+         returningDate
+         luggages
+         paymentMethod
+         groupNumber
+         adults
+         children
+         seniors
+         userId
+         username
+         bus {
+            id
+            busType
+            busStatus
+            createdAt
+            seatsFilled
+            busStop
+            numberOfPassengers
+            numberOfSeats
+            userId
+            username
+         }
+         createdAt
+      }
+   }
+`;

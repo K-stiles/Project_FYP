@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Signup } from "../components";
+import { useMutation, gql } from "@apollo/client";
+import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { CheckboxLabel, Loader, Signup } from "../components";
 import { validateInput } from "../utils";
+import { fetchUser } from "../redux/features/userSlice";
 
 export default function SignupContainer() {
    const [firstname, setFirstname] = useState("");
@@ -9,6 +13,7 @@ export default function SignupContainer() {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
    const [phone, setPhone] = useState("");
+   const [hasAgreed, setHasAgreed] = useState(false);
 
    const [firstnameError, setFirstnameError] = useState("");
    const [lastnameError, setLastnameError] = useState("");
@@ -16,6 +21,17 @@ export default function SignupContainer() {
    const [passwordError, setPasswordError] = useState("");
    const [phoneError, setPhoneError] = useState("");
 
+   // let location = useLocation();
+   // const from = location?.state?.from.pathname || "/";
+   const navigate = useNavigate();
+   const dispatch = useDispatch();
+
+   // const user = useSelector(GET_USER);
+   // console.log(user);
+
+   const getCheckedValue = () => {
+      setHasAgreed((hasAgreed) => !hasAgreed);
+   };
    function activateButton() {
       return (
          firstname !== "" &&
@@ -27,29 +43,51 @@ export default function SignupContainer() {
          lastnameError === "" &&
          emailError === "" &&
          passwordError === "" &&
-         phoneError === ""
+         phoneError === "" &&
+         hasAgreed !== false
       );
    }
 
    const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-         console.log(firstname);
-         console.log(lastname);
-         console.log(email);
-         console.log(password);
-         console.log(phone);
-
+         const {
+            data: { createUser },
+         } = await register({
+            variables: {
+               input: {
+                  firstName: firstname,
+                  lastName: lastname,
+                  email,
+                  password,
+                  phone,
+               },
+            },
+         });
+         dispatch(fetchUser(createUser));
+         // console.log(createUser);
          //clear state and controlled inputs
          setFirstname("");
          setLastname("");
          setEmail("");
          setPassword("");
          setPhone("");
+         setHasAgreed(false);
+         navigate("/confirmRegisteration", { replace: true });
       } catch (err) {
          console.log(err);
       }
    };
+
+   const [register, { loading }] = useMutation(REGISTER_USER, {
+      onError(registerErr) {
+         setEmailError(registerErr);
+      },
+   });
+
+   if (loading) return <Loader />;
+   // if (error) return `Submission error! ${error.message}`;
+   // if (data) navigate("/confirmRegisteration", { replace: true });
 
    return (
       <Signup>
@@ -90,11 +128,18 @@ export default function SignupContainer() {
                         Please read them carefully. We are GDRP compliiant
                      </Signup.Info>
 
-                     <Signup.InputLabel htmlFor="name">
-                        Full Name
-                     </Signup.InputLabel>
+                     <Signup.LabelRow>
+                        <Signup.InputLabel htmlFor="name">
+                           Full Name
+                        </Signup.InputLabel>
+                        <Signup.ErrorMsg>
+                           {`${lastnameError || firstnameError}`}
+                        </Signup.ErrorMsg>
+                     </Signup.LabelRow>
                      <Signup.Row>
-                        <Signup.InputWrapper>
+                        <Signup.InputWrapper
+                           firstnameError={firstnameError !== "" ? true : false}
+                        >
                            <Signup.Input
                               type="text"
                               name="firstname"
@@ -108,14 +153,13 @@ export default function SignupContainer() {
                                  );
                                  setFirstname(e.target.value);
                               }}
-                              // ref={usernameRef}
                               required
                               autoComplete="off"
-                              // onFocus={() => setUserFocus(true)}
-                              // onBlur={() => setUserFocus(false)}
                            />
                         </Signup.InputWrapper>
-                        <Signup.InputWrapper>
+                        <Signup.InputWrapper
+                           lastnameError={lastnameError !== "" ? true : false}
+                        >
                            <Signup.Input
                               type="text"
                               name="lastname"
@@ -134,14 +178,16 @@ export default function SignupContainer() {
                            />
                         </Signup.InputWrapper>
                      </Signup.Row>
-                     <div style={{ color: "red" }}>
-                        {`firstnameError: ${firstnameError}, lastnameError: ${lastnameError}`}
-                     </div>
 
-                     <Signup.InputLabel htmlFor="email">
-                        Email
-                     </Signup.InputLabel>
-                     <Signup.InputWrapper>
+                     <Signup.LabelRow>
+                        <Signup.InputLabel htmlFor="email">
+                           Email
+                        </Signup.InputLabel>
+                        <Signup.ErrorMsg>{`${emailError}`}</Signup.ErrorMsg>
+                     </Signup.LabelRow>
+                     <Signup.InputWrapper
+                        emailError={emailError !== "" ? true : false}
+                     >
                         <Signup.Input
                            type="email"
                            name="email"
@@ -158,14 +204,16 @@ export default function SignupContainer() {
                            }}
                         />
                      </Signup.InputWrapper>
-                     <div
-                        style={{ color: "red" }}
-                     >{`emailError: ${emailError}`}</div>
 
-                     <Signup.InputLabel htmlFor="phone">
-                        Phone Number
-                     </Signup.InputLabel>
-                     <Signup.InputWrapper>
+                     <Signup.LabelRow>
+                        <Signup.InputLabel htmlFor="phone">
+                           Phone Number
+                        </Signup.InputLabel>
+                        <Signup.ErrorMsg>{`${phoneError}`}</Signup.ErrorMsg>
+                     </Signup.LabelRow>
+                     <Signup.InputWrapper
+                        phoneError={phoneError !== "" ? true : false}
+                     >
                         <Signup.Input
                            type="text"
                            name="phone"
@@ -182,14 +230,16 @@ export default function SignupContainer() {
                            }}
                         />
                      </Signup.InputWrapper>
-                     <div
-                        style={{ color: "red" }}
-                     >{`phoneError: ${phoneError}`}</div>
 
-                     <Signup.InputLabel htmlFor="password">
-                        Password
-                     </Signup.InputLabel>
-                     <Signup.InputWrapper>
+                     <Signup.LabelRow>
+                        <Signup.InputLabel htmlFor="password">
+                           Password
+                        </Signup.InputLabel>
+                        <Signup.ErrorMsg>{`${passwordError}`}</Signup.ErrorMsg>
+                     </Signup.LabelRow>
+                     <Signup.InputWrapper
+                        passwordError={passwordError !== "" ? true : false}
+                     >
                         <Signup.Input
                            type="password"
                            name="password"
@@ -206,21 +256,24 @@ export default function SignupContainer() {
                            }}
                         />
                      </Signup.InputWrapper>
-                     <div
-                        style={{ color: "red" }}
-                     >{`passwordError: ${passwordError}`}</div>
 
                      <Signup.Row>
-                        <Signup.CheckboxLabel>
-                           I agree with terms and conditions.
-                        </Signup.CheckboxLabel>
+                        <CheckboxLabel
+                           boxId={"checboxId"}
+                           checkboxName={"checbox"}
+                           option={"I agree with terms and conditions."}
+                           // value={"agree"}
+                           onChange={getCheckedValue}
+                           checked={hasAgreed}
+                           // checkedError={checkedError !== "" ? true : false}
+                        />
                      </Signup.Row>
 
                      <Signup.RegisterButton
                         disabled={activateButton() ? false : true}
                         activateBtn={activateButton() ? true : false}
                      >
-                        <Signup.BtnLink to={"/confirmRegisteration"}>Register</Signup.BtnLink>
+                        <Signup.BtnLink> Register </Signup.BtnLink>
                      </Signup.RegisterButton>
                   </Signup.Form>
                </Signup.Left>
@@ -248,3 +301,21 @@ export default function SignupContainer() {
       </Signup>
    );
 }
+
+const REGISTER_USER = gql`
+   mutation CreateUser($input: RegistrationInput) {
+      createUser(input: $input) {
+         id
+         firstName
+         lastName
+         email
+         phone
+         street
+         city
+         zip
+         createdAt
+         userReservations
+         img
+      }
+   }
+`;
