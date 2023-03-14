@@ -16,7 +16,8 @@ import "normalize.css";
 import { GlobalStyles } from "./globalStyles";
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:4000/",
+  uri: "https://gosling-flannel-shirt.cyclic.app",
+  // uri: "http://localhost:4000/",
 });
 
 const setAuthorizationLink = setContext((request, previousContext) => {
