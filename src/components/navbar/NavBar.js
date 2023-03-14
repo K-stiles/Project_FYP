@@ -9,9 +9,9 @@ export const NavHeader = styled.header`
   width: 100%;
   transition: all 0.3s ease 0s;
 
-  box-shadow: -3px 7px 8px -4px rgba(0, 0, 0, 0.68);
-  -webkit-box-shadow: -3px 7px 8px -4px rgba(0, 0, 0, 0.68);
-  -moz-box-shadow: -3px 7px 8px -4px rgba(0, 0, 0, 0.68);
+  box-shadow: -3px 7px 8px -4px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: -3px 7px 8px -4px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: -3px 7px 8px -4px rgba(0, 0, 0, 0.05);
 `;
 export const Nav = styled.nav`
   height: 80px;

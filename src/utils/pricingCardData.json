@@ -1,16 +1,5 @@
 [
   {
-    "id": "1",
-    "title": "Save More With Famek)",
-    "subTitle": "Choose a plan and get onboard in minutes. Then get GHC100 credits for your next trip.",
-    "titleIcon": "/images/busIcon.png",
-    "distance": 500,
-    "price": 20,
-    "image": "/images/busImage.png",
-    "renderBtn": false,
-    "label": []
-  },
-  {
     "id": "2",
     "title": "Save More",
     "subTitle": "What You'll Get",

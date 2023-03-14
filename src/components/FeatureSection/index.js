@@ -27,11 +27,6 @@ export default function FeatureSection() {
               <FeaturePane>
                 <FeatureTitle>{item.title}</FeatureTitle>
                 <FeatureSubTitle>{item.description}</FeatureSubTitle>
-                {item.btn && (
-                  <PrimarySolidBtn margin={"20px 0 0"} padding={"10px 35px"}>
-                    Buy Me
-                  </PrimarySolidBtn>
-                )}
               </FeaturePane>
             </FeatureInner>
           ))}
