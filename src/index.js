@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
-   ApolloClient,
-   createHttpLink,
-   InMemoryCache,
-   ApolloProvider,
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+  ApolloProvider,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
@@ -16,19 +16,19 @@ import "normalize.css";
 import { GlobalStyles } from "./globalStyles";
 
 const httpLink = createHttpLink({
-   uri: "http://localhost:4000/",
+  uri: "http://localhost:4000/",
 });
 
 const setAuthorizationLink = setContext((request, previousContext) => {
-   const token = localStorage.getItem("jwtToken")
-   return {
-      headers: { Authorization: token ? `Bearer ${token}` : "" },
-   };
+  const token = localStorage.getItem("jwtToken");
+  return {
+    headers: { Authorization: token ? `Bearer ${token}` : "" },
+  };
 });
 
 const client = new ApolloClient({
-   link: setAuthorizationLink.concat(httpLink),
-   cache: new InMemoryCache(),
+  link: setAuthorizationLink.concat(httpLink),
+  cache: new InMemoryCache(),
 });
 // const client = new ApolloClient({
 //    link: httpLink,
@@ -37,12 +37,12 @@ const client = new ApolloClient({
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-   <React.StrictMode>
-      <Provider store={store}>
-         <ApolloProvider client={client}>
-            <GlobalStyles />
-            <App />
-         </ApolloProvider>
-      </Provider>
-   </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
+        <GlobalStyles />
+        <App />
+      </ApolloProvider>
+    </Provider>
+  </React.StrictMode>
 );

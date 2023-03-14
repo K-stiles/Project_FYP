@@ -8,6 +8,7 @@ export { default as BannerContainer } from "./BannerContainer";
 export { default as AboutUsContainer } from "./AboutUsContainer";
 export { default as FaqContainer } from "./FaqContainer";
 export { default as TestimonialContainer } from "./TestimonialContainer";
+export { default as TestimonialCardContainer } from "./TestimonialCardContainer.js";
 export { default as ContactContainer } from "./ContactContainer";
 
 export { default as JoinUsBannerContainer } from "./JoinUsBannerContainer";

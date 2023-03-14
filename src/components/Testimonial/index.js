@@ -11,10 +11,13 @@ import {
   Github,
   ImageContainer,
   Section,
+  SliderNavigator,
+  SNavIcon,
   SocialLinks,
   SubTitle,
   Title,
   TopQuote,
+  TopWrapper,
   Twitter,
   Wrapper,
   Youtube,
@@ -26,6 +29,12 @@ export default function Testimonial({ children, ...restProps }) {
 
 Testimonial.Wrapper = function TestimonialWrapper({ children, ...restProps }) {
   return <Wrapper {...restProps}>{children}</Wrapper>;
+};
+Testimonial.TopWrapper = function TestimonialTopWrapper({
+  children,
+  ...restProps
+}) {
+  return <TopWrapper {...restProps}>{children}</TopWrapper>;
 };
 Testimonial.Container = function TestimonialContainer({
   children,
@@ -97,4 +106,13 @@ Testimonial.Twitter = function TestimonialTwitter({ ...restProps }) {
 };
 Testimonial.Developer = function TestimonialDeveloper({ ...restProps }) {
   return <Developer {...restProps} />;
+};
+Testimonial.SliderNavigator = function TestimonialSliderNavigator({
+  children,
+  ...restProps
+}) {
+  return <SliderNavigator {...restProps}>{children}</SliderNavigator>;
+};
+Testimonial.SNavIcon = function TestimonialSNavIcon({ ...restProps }) {
+  return <SNavIcon {...restProps} />;
 };

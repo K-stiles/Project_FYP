@@ -21,10 +21,40 @@ export default function PricingContainer() {
                 the country
               </Pricing.SideDescription>
               <Pricing.Row>
-                <Pricing.Image src="/images/busIcon.png" alt="bus image" />
+                <Pricing.Image src="/images/bus-alt 1.png" alt="bus image" />
                 <Pricing.Social>@famek) transport</Pricing.Social>
               </Pricing.Row>
             </Pricing.Card>
+
+            <div>
+              <Pricing.Card cardColor="#025993">
+                <div>
+                  <Pricing.Row marginTop="0px" padding="0px">
+                    <Pricing.CardTitle busCard>
+                      Save More With Famek)
+                    </Pricing.CardTitle>
+                  </Pricing.Row>
+                  <Pricing.CardSubTitle busCard>
+                    Choose a plan and get onboard in minutes. Then get GHC100
+                    credits for your next trip.
+                  </Pricing.CardSubTitle>
+
+                  <Pricing.Row marginTop="0" padding="10px 10px 10px 0px">
+                    <Pricing.Image
+                      src={"/images/arrow-right-line 1.png"}
+                      alt={"item.tag"}
+                    />
+                  </Pricing.Row>
+
+                  <Pricing.AbsoluteBus>
+                    <Pricing.Bus
+                      src={"/images/busImage.png"}
+                      alt={"card.title"}
+                    />
+                  </Pricing.AbsoluteBus>
+                </div>
+              </Pricing.Card>
+            </div>
 
             {pricingCardData &&
               pricingCardData.map((card) => (

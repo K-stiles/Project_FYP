@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const Section = styled.section`
-  padding: 100px 10%;
+  padding: 100px 5%;
   /* background-color: tomato; */
 `;
 export const Wrapper = styled.div`
@@ -19,31 +19,56 @@ export const Title = styled.h1`
   color: #ffffff;
 `;
 export const SubTitle = styled.h3`
+  width: 437px;
+  text-align: center;
+  align-self: center;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
   text-align: center;
-  /* width: 437px;
-  align-self: center; */
 
   color: #dbdada;
   margin-bottom: 15px;
 `;
 
+export const TopWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* background: gray; */
+`;
+
+//SLIDER CONTAINER
 export const Container = styled.div`
   max-width: 100%;
-  padding: 20px;
-  /* background-color: aliceblue; */
+  height: 600px;
+  padding: 0px 5% 10px;
+  margin-top: 1%;
 
-  margin-top: 6%;
+  position: relative;
+  /* background: red; */
+
+  & > .swiper {
+    width: 100%;
+    height: 90%;
+    position: unset;
+    /* background: teal; */
+    padding: 50px 5px 5px;
+  }
+  & .swiper-wrapper {
+    box-sizing: border-box;
+  }
+  & .swiper-slide {
+    /* background: #025993; */
+  }
 `;
 
 export const Card = styled.div`
-  width: 340px;
-  height: 425px;
+  width: 100%;
+  height: 100%;
   background: #fff;
-  padding: 30px 30px;
+  /* background-color: #d7f2ff; */
+  padding: 10px;
   border-radius: 10px;
 
   display: flex;
@@ -54,6 +79,9 @@ export const Card = styled.div`
 export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  padding: 5px;
 `;
 
 export const CardTitle = styled.h1`
@@ -65,13 +93,13 @@ export const CardTitle = styled.h1`
   text-transform: uppercase;
 
   color: #02416b;
-  margin-top: 55px;
+  margin-bottom: 15px;
 `;
 export const DevRole = styled.h1`
   text-align: center;
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 21px;
   text-transform: uppercase;
 
@@ -80,9 +108,7 @@ export const DevRole = styled.h1`
 `;
 
 export const CardDescription = styled.div`
-  /* text-align: justify; */
-  margin: 15px 0px;
-  width: 263px;
+  padding: 10px 20px;
 
   font-style: normal;
   font-weight: 400;
@@ -92,18 +118,20 @@ export const CardDescription = styled.div`
   color: #025993;
 `;
 export const ImageContainer = styled.div`
-  width: 145px;
-  height: 145px;
+  width: 140px;
+  height: 140px;
   background: #02416b;
   border-radius: 50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 
   position: absolute;
   left: 28%;
-  top: -70px;
+  top: -50px;
+  z-index: 999;
 `;
 export const SocialLinks = styled.div`
   width: 92.96px;
@@ -114,11 +142,11 @@ export const SocialLinks = styled.div`
   justify-content: space-between;
 `;
 export const Developer = styled.img`
-  max-width: 130px;
-  max-height: 130px;
+  /* max-width: 90px;
+  max-height: 90px; */
 
-  height: 100%;
-  width: 100%;
+  height: 90%;
+  width: 90%;
   border-radius: 50%;
   object-fit: cover;
   /* border: 2px solid red; */
@@ -147,28 +175,53 @@ export const Twitter = styled.img`
 export const TopQuote = styled.img`
   height: 100%;
   width: 100%;
-  max-width: 35px;
-  max-height: 25px;
+  max-width: 30px;
+  max-height: 20px;
 `;
 
 export const BottomQuote = styled.img`
   height: 100%;
   width: 100%;
 
-  max-width: 35px;
-  max-height: 25px;
+  max-width: 30px;
+  max-height: 20px;
 
   align-self: flex-end;
 `;
+export const SliderNavigator = styled.button`
+  padding: 1rem;
+  border: none;
+  outline: none;
+  /* background: transparent; */
+  cursor: pointer;
+`;
+export const SNavIcon = styled.img`
+  width: 20px;
+  object-fit: contain;
+`;
 
-// @media (max-width: 1045px) {
-//   .container .box {
-//     width: calc(50% - 10px);
-//     margin-bottom: 20px;
-//   }
-// }
-// @media (max-width: 710px) {
-//   .container .box {
+// //SLIDER CONTAINER SKELETON
+// export const Container = styled.div`
+//   max-width: 100%;
+//   height: 550px;
+//   padding: 20px 5%;
+//   margin-top: 6%;
+
+//   position: relative;
+
+//   & > .swiper {
+//     background: yellow;
 //     width: 100%;
+//     height: 100%;
+//     position: unset;
 //   }
-// }
+//   & .swiper-wrapper {
+//     background: red;
+//     color: red;
+//     box-sizing: border-box;
+//   }
+//   & .swiper-slide {
+//     background: green;
+//     padding: 10px;
+//   }
+// `;
